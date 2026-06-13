@@ -28,14 +28,14 @@ export default function PerguntasFrequentes({ props }) {
             </details>
           ))}
         </div>
-        {temMais && !mostrarTodas ? (
+        {temMais ? (
           <div style={{ textAlign: 'center', margin: '16px 0' }}>
             <button
               className="faq-mais"
               type="button"
-              onClick={() => setMostrarTodas(true)}
+              onClick={() => setMostrarTodas((atual) => !atual)}
             >
-              + perguntas
+              {mostrarTodas ? '- perguntas' : '+ perguntas'}
             </button>
           </div>
         ) : null}
