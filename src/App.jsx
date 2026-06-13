@@ -1,122 +1,88 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import { useEffect, useState } from 'react'
+import Cabecalho from './cabecalho/Cabecalho'
+import PaginaAdmin from './componentes/Admin/PaginaAdmin'
+import IconeWhatsApp from './componentes/IconeWhatsApp/IconeWhatsApp'
+import Principal from './principal/Principal'
+import Rodape from './rodape/Rodape'
+import { getLandingData } from './servicos/conteudoService'
 
-function App() {
-  const [count, setCount] = useState(0)
+function getCurrentView() {
+  return window.location.hash === '#admin' ? 'admin' : 'site'
+}
+
+export default function App() {
+  const [view, setView] = useState(getCurrentView)
+  const [landingData, setLandingData] = useState(null)
+  const [isLoading, setIsLoading] = useState(true)
+
+  async function loadData(options = {}) {
+    setIsLoading(true)
+    const data = await getLandingData({
+      includeDisabled: options.includeDisabled || getCurrentView() === 'admin',
+    })
+    setLandingData(data)
+    setIsLoading(false)
+  }
+
+  useEffect(() => {
+    let isMounted = true
+
+    getLandingData({ includeDisabled: getCurrentView() === 'admin' }).then((data) => {
+      if (isMounted) {
+        setLandingData(data)
+        setIsLoading(false)
+      }
+    })
+
+    function syncHash() {
+      const nextView = getCurrentView()
+      setView(nextView)
+
+      if (window.location.hash === '#site') {
+        window.location.hash = ''
+      }
+
+      loadData({ includeDisabled: nextView === 'admin' })
+    }
+
+    window.addEventListener('hashchange', syncHash)
+    return () => {
+      isMounted = false
+      window.removeEventListener('hashchange', syncHash)
+    }
+  }, [])
+
+  if (isLoading || !landingData) {
+    return <div className="app-loading">Carregando landing...</div>
+  }
+
+  if (view === 'admin') {
+    return (
+      <PaginaAdmin
+        data={landingData}
+        onDataChange={setLandingData}
+        onReload={loadData}
+      />
+    )
+  }
 
   return (
     <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
-
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
+      {landingData.error ? (
+        <div className="fallback-alert">{landingData.error}</div>
+      ) : null}
+      <Cabecalho brand={landingData.settings.brand} />
+      <Principal sections={landingData.sections} />
+      <Rodape settings={landingData.settings} />
+      <a
+        className="whatsapp-btn"
+        href={landingData.settings.contact.whatsappHref}
+        target="_blank"
+        rel="noreferrer"
+        aria-label="Fale conosco no WhatsApp"
+      >
+        <IconeWhatsApp className="whatsapp-icon" />
+      </a>
     </>
   )
 }
-
-export default App
