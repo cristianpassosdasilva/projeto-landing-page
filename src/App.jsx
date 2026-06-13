@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
+import { FloatingWhatsApp } from 'react-floating-whatsapp'
+import logoSvg from './assets/logo.svg'
 import Cabecalho from './cabecalho/Cabecalho'
 import PaginaAdmin from './componentes/Admin/PaginaAdmin'
-import IconeWhatsApp from './componentes/IconeWhatsApp/IconeWhatsApp'
 import Principal from './principal/Principal'
 import Rodape from './rodape/Rodape'
 import { getLandingData } from './servicos/conteudoService'
@@ -74,15 +75,26 @@ export default function App() {
       <Cabecalho brand={landingData.settings.brand} />
       <Principal sections={landingData.sections} />
       <Rodape settings={landingData.settings} />
-      <a
-        className="whatsapp-btn"
-        href={landingData.settings.contact.whatsappHref}
-        target="_blank"
-        rel="noreferrer"
-        aria-label="Fale conosco no WhatsApp"
-      >
-        <IconeWhatsApp className="whatsapp-icon" />
-      </a>
+      <FloatingWhatsApp
+        avatar={logoSvg}
+        phoneNumber={landingData.settings.contact.whatsappHref.replace('https://wa.me/', '')}
+        accountName={landingData.settings.brand.name}
+        statusMessage={landingData.settings.brand.subtitle}
+        chatMessage={landingData.settings.contact.whatsappMessage}
+        placeholder="Digite sua mensagem..."
+        allowClickAway
+        allowEsc
+        onSubmit={(event, message) => {
+          event.preventDefault()
+          const href = landingData.settings.contact.whatsappHref
+          const separator = href.includes('?') ? '&' : '?'
+          window.open(
+            `${href}${separator}text=${encodeURIComponent(message)}`,
+            '_blank',
+            'noopener,noreferrer',
+          )
+        }}
+      />
     </>
   )
 }

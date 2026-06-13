@@ -152,6 +152,7 @@ export const defaultContent = {
     phoneHref: 'tel:3432614709',
     whatsapp: '(34) 9 9643-4420',
     whatsappHref: 'https://wa.me/5534996434420',
+    whatsappMessage: "Olá! Bem-vindo à Laud's. Como posso ajudar?",
     subjects: [
       'Corte de cabelo',
       'Coloração',
