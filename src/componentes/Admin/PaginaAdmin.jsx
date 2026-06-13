@@ -318,6 +318,7 @@ function SettingsEditor({ settings, updateSettings, onSave }) {
         <TextInput label="Link telefone" value={settings.contact.phoneHref} onChange={(value) => updateSettings(['contact', 'phoneHref'], value)} />
         <TextInput label="WhatsApp" value={settings.contact.whatsapp} onChange={(value) => updateSettings(['contact', 'whatsapp'], value)} />
         <TextInput label="Link WhatsApp" value={settings.contact.whatsappHref} onChange={(value) => updateSettings(['contact', 'whatsappHref'], value)} />
+        <TextArea label="Mensagem de boas-vindas (chat WhatsApp)" value={settings.contact.whatsappMessage || ''} onChange={(value) => updateSettings(['contact', 'whatsappMessage'], value)} />
       </AdminCard>
       <AdminCard>
         <TextInput label="CNPJ" value={settings.footer.cnpj} onChange={(value) => updateSettings(['footer', 'cnpj'], value)} />
