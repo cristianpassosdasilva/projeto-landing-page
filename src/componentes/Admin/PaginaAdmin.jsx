@@ -132,9 +132,7 @@ export default function PaginaAdmin({ data, onDataChange, onReload }) {
     <main className="admin-page">
       <header className="admin-top">
         <div>
-          <span className="sec-label">Admin seguro</span>
           <h1>Editar landing page</h1>
-          <p>Conteúdo salvo no Supabase com autenticação e regras RLS.</p>
           {status ? <p className="admin-status">{status}</p> : null}
         </div>
         <div className="admin-actions">
