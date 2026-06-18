@@ -97,7 +97,7 @@ export const registroSecoes = {
       label: 'Dúvidas',
       title: 'Você pode querer saber',
       cta: 'Ainda ficou com alguma dúvida? Fale conosco!',
-      items: [{ question: 'Nova pergunta?', answer: 'Nova resposta.' }],
+      items: [{ question: 'Nova pergunta?', answer: 'Nova resposta.', featured: true }],
     },
   },
   // contact: {

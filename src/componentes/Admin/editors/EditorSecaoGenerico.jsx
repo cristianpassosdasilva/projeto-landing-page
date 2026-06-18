@@ -190,6 +190,9 @@ function ItemsEditor({ items, onChange, onUpload }) {
           {'answer' in item ? (
             <TextArea label="Resposta" value={item.answer} onChange={(value) => update(index, 'answer', value)} />
           ) : null}
+          {'question' in item ? (
+            <CheckboxInput label="Exibir nas primeiras 4" value={item.featured ?? true} onChange={(value) => update(index, 'featured', value)} />
+          ) : null}
           {'image' in item ? (
             <ImageInput label="Imagem" value={item.image} onChange={(value) => update(index, 'image', value)} onUpload={onUpload} />
           ) : null}
@@ -208,7 +211,7 @@ function ItemsEditor({ items, onChange, onUpload }) {
 
 function createItemModelo(item = {}) {
   if ('question' in item || 'answer' in item) {
-    return { question: 'Nova pergunta?', answer: 'Nova resposta.' }
+    return { question: 'Nova pergunta?', answer: 'Nova resposta.', featured: false }
   }
 
   if ('quote' in item || 'name' in item || 'initial' in item) {
