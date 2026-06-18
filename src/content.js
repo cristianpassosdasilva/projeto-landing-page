@@ -120,26 +120,31 @@ export const defaultContent = {
         question: 'É necessário agendar horário?',
         answer:
           'Sim. Trabalhamos exclusivamente com atendimento agendado para garantir conforto, pontualidade e uma experiência personalizada para cada cliente.',
+        featured: true,
       },
       {
         question: 'Quais serviços o salão oferece?',
         answer:
           'Oferecemos serviços premium de corte, coloração, mechas, tratamentos capilares, maquiagem, sobrancelha, manicure, pedicure e produção para eventos.',
+        featured: true,
       },
       {
         question: 'Quais produtos são utilizados nos procedimentos?',
         answer:
           'Trabalhamos com linhas profissionais e produtos de alta performance, selecionados para garantir resultados sofisticados e saudáveis aos fios e à pele.',
+        featured: true,
       },
       {
         question: 'O salão atende sem horário marcado?',
         answer:
           'Recomendamos o agendamento prévio para garantir disponibilidade e um atendimento exclusivo. Em alguns casos, atendemos encaixes conforme disponibilidade da agenda.',
+        featured: true,
       },
       {
         question: 'Como faço para agendar?',
         answer:
           'Você pode realizar seu agendamento através do WhatsApp, telefone ou formulário desta página.',
+        featured: false,
       },
     ],
   },

@@ -1,7 +1,5 @@
 import { useState } from 'react'
 
-const PERGUNTAS_VISIVEIS = 4
-
 export default function PerguntasFrequentes({ props }) {
   const [mostrarTodas, setMostrarTodas] = useState(false)
 
@@ -9,8 +7,16 @@ export default function PerguntasFrequentes({ props }) {
     (item) => item.question?.trim() && item.answer?.trim(),
   )
 
-  const perguntasExibidas = mostrarTodas ? perguntas : perguntas.slice(0, PERGUNTAS_VISIVEIS)
-  const temMais = perguntas.length > PERGUNTAS_VISIVEIS
+  const perguntasDestaque = perguntas.filter((item) => item.featured ?? true)
+  const perguntasExtras = perguntas.filter((item) => !(item.featured ?? true))
+
+  const perguntasExibidas = mostrarTodas
+    ? perguntas
+    : perguntasDestaque.length > 0
+      ? perguntasDestaque
+      : perguntas.slice(0, 4)
+
+  const temMais = perguntasExtras.length > 0 || (perguntasDestaque.length === 0 && perguntas.length > 4)
 
   return (
     <section id="faq" className="section faq-section">
