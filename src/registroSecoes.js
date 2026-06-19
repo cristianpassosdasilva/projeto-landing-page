@@ -1,5 +1,5 @@
 // import ChamadaAcao from './principal/Secoes/ChamadaAcao/ChamadaAcao'
-// import Contato from './principal/Secoes/Contato/Contato'
+import Contato from './principal/Secoes/Contato/Contato'
 // import Depoimentos from './principal/Secoes/Depoimentos/Depoimentos'
 // import DestaqueInicial from './principal/Secoes/DestaqueInicial/DestaqueInicial'
 // import Galeria from './principal/Secoes/Galeria/Galeria'
@@ -100,21 +100,21 @@ export const registroSecoes = {
       items: [{ question: 'Nova pergunta?', answer: 'Nova resposta.', featured: true }],
     },
   },
-  // contact: {
-  //   label: 'Contato',
-  //   component: Contato,
-  //   defaultProps: {
-  //     label: 'Fale conosco',
-  //     title: 'O primeiro passo para',
-  //     highlight: 'sua transformação',
-  //     subtitle: 'Fale com quem entende de beleza',
-  //     phone: '(34) 3261-4709',
-  //     phoneHref: 'tel:3432614709',
-  //     whatsapp: '(34) 9 9643-4420',
-  //     whatsappHref: 'https://wa.me/5534996434420',
-  //     subjects: ['Corte de cabelo', 'Maquiagem', 'Outro'],
-  //   },
-  // },
+  contact: {
+    label: 'Contato',
+    component: Contato,
+    defaultProps: {
+      label: 'Fale conosco',
+      title: 'O primeiro passo para',
+      highlight: 'sua transformação',
+      subtitle: 'Fale com quem entende de beleza',
+      phone: '(34) 3261-4709',
+      phoneHref: 'tel:3432614709',
+      whatsapp: '(34) 9 9643-4420',
+      whatsappHref: 'https://wa.me/5534996434420',
+      subjects: ['Corte de cabelo', 'Maquiagem', 'Outro'],
+    },
+  },
   // cta: {
   //   label: 'Chamada',
   //   component: ChamadaAcao,
