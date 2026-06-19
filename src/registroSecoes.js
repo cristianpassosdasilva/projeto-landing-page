@@ -3,7 +3,7 @@
 // import Depoimentos from './principal/Secoes/Depoimentos/Depoimentos'
 // import DestaqueInicial from './principal/Secoes/DestaqueInicial/DestaqueInicial'
 // import Galeria from './principal/Secoes/Galeria/Galeria'
-// import Historia from './principal/Secoes/Historia/Historia'
+import Historia from './principal/Secoes/Historia/Historia'
 import PerguntasFrequentes from './principal/Secoes/PerguntasFrequentes/PerguntasFrequentes'
 import Servicos from './principal/Secoes/Servicos/Servicos'
 // import Sobre from './principal/Secoes/Sobre/Sobre'
@@ -59,19 +59,19 @@ export const registroSecoes = {
   //     items: [{ label: 'Nova imagem', image: '', wide: false }],
   //   },
   // },
-  // history: {
-  //   label: 'História',
-  //   component: Historia,
-  //   defaultProps: {
-  //     label: 'Nossa trajetória',
-  //     title: 'Título da história',
-  //     heading: 'Chamada',
-  //     highlight: 'Destaque',
-  //     paragraphs: ['Primeiro parágrafo da história.'],
-  //     imageLabel: 'Foto',
-  //     image: '',
-  //   },
-  // },
+  history: {
+    label: 'História',
+    component: Historia,
+    defaultProps: {
+      label: 'Nossa trajetória',
+      title: 'Título da história',
+      heading: 'Chamada',
+      highlight: 'Destaque',
+      paragraphs: ['Primeiro parágrafo da história.'],
+      imageLabel: 'Foto',
+      image: '',
+    },
+  },
   // testimonials: {
   //   label: 'Depoimentos',
   //   component: Depoimentos,
