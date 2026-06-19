@@ -23,7 +23,7 @@ export default function Servicos({ props }) {
 
     const timer = window.setInterval(() => {
       setServiceSlide((current) => (current + 1) % serviceImages.length)
-    }, 3600)
+    }, 10000)
 
     return () => window.clearInterval(timer)
   }, [serviceImages.length])
