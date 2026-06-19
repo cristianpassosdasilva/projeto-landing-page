@@ -150,8 +150,8 @@
   align-items: center;
   gap: 10px;
   color: var(--p700);
-  font-size: 0.74rem;
-  font-weight: 800;
+  font-size: 1.05rem;
+  font-weight: 700;
   letter-spacing: 0.13em;
   text-transform: uppercase;
 }
@@ -299,6 +299,18 @@
 .section-head p {
   color: var(--n550);
   font-size: 1.06rem;
+}
+
+.services-section .section-head h2 {
+  font-family: '42dot Sans', sans-serif;
+  font-size: 2.6rem;
+  font-weight: 700;
+}
+
+.services-section .section-head p {
+  font-family: '42dot Sans', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 400;
 }
 
 .services-layout {
