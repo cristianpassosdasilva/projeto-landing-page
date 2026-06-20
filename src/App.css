@@ -233,6 +233,11 @@
 
 .section {
   padding: 96px 0;
+  scroll-margin-top: 96px;
+}
+
+main > section:first-child {
+  padding-top: 132px;
 }
 
 .about-section,
@@ -1272,6 +1277,23 @@ footer .logo-text {
 
   .section {
     padding: 72px 0;
+    scroll-margin-top: 152px;
+  }
+
+  main > section:first-child {
+    padding-top: 152px;
+  }
+
+  .whatsapp-btn {
+    right: 16px;
+    bottom: 16px;
+    width: 50px;
+    height: 50px;
+  }
+
+  .whatsapp-icon {
+    width: 26px;
+    height: 26px;
   }
 
   .service-grid,
