@@ -69,10 +69,10 @@ export default function EditorSecaoGenerico({ section, onChange, onUpload }) {
       {'href' in props ? (
         <TextInput label="Link do botão" value={props.href} onChange={(value) => updateProp(['href'], value)} />
       ) : null}
-      {'image' in props ? (
+      {'image' in props && section.type !== 'history' ? (
         <ImageInput label="Imagem" value={props.image} onChange={(value) => updateProp(['image'], value)} onUpload={onUpload} />
       ) : null}
-      {'imageLabel' in props ? (
+      {'imageLabel' in props && section.type !== 'history' ? (
         <TextInput label="Legenda da imagem" value={props.imageLabel} onChange={(value) => updateProp(['imageLabel'], value)} />
       ) : null}
       {'phone' in props ? (
@@ -124,9 +124,9 @@ export default function EditorSecaoGenerico({ section, onChange, onUpload }) {
           onUpload={onUpload}
         />
       ) : null}
-      {'images' in props ? (
+      {'images' in props || section.type === 'history' ? (
         <ImagesEditor
-          items={props.images}
+          items={props.images || []}
           onChange={(nextImages) => updateProp(['images'], nextImages)}
           onUpload={onUpload}
         />
