@@ -4,6 +4,7 @@ import {
   CheckboxInput,
   ImageInput,
   MiniButton,
+  RatingInput,
   TextArea,
   TextInput,
 } from '../fields/AdminFields'
@@ -184,6 +185,9 @@ function ItemsEditor({ items, onChange, onUpload }) {
           {'quote' in item ? (
             <TextArea label="Depoimento" value={item.quote} onChange={(value) => update(index, 'quote', value)} />
           ) : null}
+          {'quote' in item ? (
+            <RatingInput label="Nota" value={item.rating ?? 5} onChange={(value) => update(index, 'rating', value)} />
+          ) : null}
           {'question' in item ? (
             <TextInput label="Pergunta" value={item.question} onChange={(value) => update(index, 'question', value)} />
           ) : null}
@@ -220,6 +224,7 @@ function createItemModelo(item = {}) {
       name: 'Nova cliente',
       location: 'Ituiutaba - MG',
       quote: 'Novo depoimento.',
+      rating: 5,
     }
   }
 

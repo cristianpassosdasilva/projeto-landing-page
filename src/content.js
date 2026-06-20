@@ -110,12 +110,14 @@ export const defaultContent = {
         location: 'Ituiutaba - MG',
         quote:
           'Excelência no atendimento, um trabalho perfeito. Exatamente o que esperávamos, só temos agradecimento e elogios a toda a equipe.',
+        rating: 5,
       },
       {
         initial: 'L',
         name: 'Luciana F.',
         location: 'Ituiutaba - MG',
         quote: 'O melhor atendimento e uma equipe competente e carinhosa.',
+        rating: 5,
       },
       {
         initial: 'Q',
@@ -123,6 +125,7 @@ export const defaultContent = {
         location: 'Ituiutaba - MG',
         quote:
           'Ótimo lugar pra quem está precisando se arrumar pra festa, casamento etc. Excelente profissional, ambiente lindo pra noivas e madrinhas.',
+        rating: 5,
       },
     ],
   },
