@@ -150,8 +150,8 @@
   align-items: center;
   gap: 10px;
   color: var(--p700);
-  font-size: 1.05rem;
-  font-weight: 700;
+  font-size: 1.25rem;
+  font-weight: 800;
   letter-spacing: 0.13em;
   text-transform: uppercase;
 }
