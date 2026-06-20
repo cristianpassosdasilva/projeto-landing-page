@@ -533,8 +533,11 @@
 
 .testimonial-carousel {
   position: relative;
+  padding: 8px 64px;
+}
+
+.testimonial-viewport {
   overflow: hidden;
-  padding: 8px 4px;
 }
 
 .testimonial-track {
@@ -1236,6 +1239,10 @@ footer .logo-text {
 
   .testimonial-nav {
     display: none;
+  }
+
+  .testimonial-carousel {
+    padding: 8px 4px;
   }
 
   .admin-tabs {
