@@ -73,7 +73,7 @@ export default function Servicos({ props }) {
             >
               ‹
             </button>
-            <span>{currentServiceImage.label}</span>
+            {currentServiceImage.label ? <span>{currentServiceImage.label}</span> : null}
             <button
               className="carousel-nav next"
               type="button"
