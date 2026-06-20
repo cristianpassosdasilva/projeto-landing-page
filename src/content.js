@@ -80,8 +80,23 @@ export const defaultContent = {
       'Cada visita é uma experiência única, onde tradição e inovação se encontram para celebrar a sua essência.',
       'Hoje, somos reconhecidos como um espaço exclusivo, onde a beleza se transforma em luxo e cada detalhe reflete a verdadeira elegância.',
     ],
-    imageLabel: "Foto da Laud's",
-    image: '',
+    images: [
+      {
+        label: "Foto da Laud's",
+        image: '',
+        gradient: 'linear-gradient(135deg, #e9cfe4, #d080c0)',
+      },
+      {
+        label: 'Estação de cabelo',
+        image: '',
+        gradient: 'linear-gradient(135deg, #d8a8d0, #954b92)',
+      },
+      {
+        label: 'Recepção',
+        image: '',
+        gradient: 'linear-gradient(135deg, #f3e6f1, #bf63ad)',
+      },
+    ],
   },
   testimonials: {
     label: 'Clientes reais',
