@@ -1,8 +1,6 @@
-import { useEffect, useState } from 'react'
-import { imageStyle } from '../../../utilitarios/estiloImagem'
+import Carrossel from '../../Comuns/Carrossel/Carrossel'
 
 export default function Historia({ props }) {
-  const [historySlide, setHistorySlide] = useState(0)
   const historyImages = props.images?.length
     ? props.images
     : [
@@ -12,20 +10,6 @@ export default function Historia({ props }) {
           gradient: 'linear-gradient(135deg, #e9cfe4, #d080c0)',
         },
       ]
-  const activeHistorySlide = historySlide % historyImages.length
-  const currentHistoryImage = historyImages[activeHistorySlide] || historyImages[0]
-
-  useEffect(() => {
-    if (historyImages.length < 2) {
-      return undefined
-    }
-
-    const timer = window.setInterval(() => {
-      setHistorySlide((current) => (current + 1) % historyImages.length)
-    }, 10000)
-
-    return () => window.clearInterval(timer)
-  }, [historyImages.length])
 
   return (
     <section id='historia' className='section history-section'>
@@ -43,49 +27,7 @@ export default function Historia({ props }) {
               <p key={`${paragraph}-${index}`}>{paragraph}</p>
             ))}
           </div>
-          <div
-            className='history-image'
-            style={imageStyle(currentHistoryImage.image, currentHistoryImage.gradient)}
-          >
-            {historyImages.length > 1 ? (
-              <button
-                className='carousel-nav prev'
-                type='button'
-                aria-label='Imagem anterior'
-                onClick={() =>
-                  setHistorySlide(
-                    (activeHistorySlide - 1 + historyImages.length) % historyImages.length,
-                  )
-                }
-              >
-                ‹
-              </button>
-            ) : null}
-            {currentHistoryImage.label ? <span>{currentHistoryImage.label}</span> : null}
-            {historyImages.length > 1 ? (
-              <button
-                className='carousel-nav next'
-                type='button'
-                aria-label='Próxima imagem'
-                onClick={() => setHistorySlide((activeHistorySlide + 1) % historyImages.length)}
-              >
-                ›
-              </button>
-            ) : null}
-            {historyImages.length > 1 ? (
-              <div className='dots'>
-                {historyImages.map((item, index) => (
-                  <button
-                    className={index === activeHistorySlide ? 'active' : ''}
-                    key={`${item.label}-${index}`}
-                    type='button'
-                    aria-label={`Ver ${item.label}`}
-                    onClick={() => setHistorySlide(index)}
-                  />
-                ))}
-              </div>
-            ) : null}
-          </div>
+          <Carrossel images={historyImages} className='history-image' />
         </div>
       </div>
     </section>
