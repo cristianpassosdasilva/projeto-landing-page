@@ -193,8 +193,8 @@ function ItemsEditor({ items, onChange, onUpload }) {
           {'question' in item ? (
             <CheckboxInput label="Exibir nas primeiras 4" value={item.featured ?? true} onChange={(value) => update(index, 'featured', value)} />
           ) : null}
-          {'image' in item ? (
-            <ImageInput label="Imagem" value={item.image} onChange={(value) => update(index, 'image', value)} onUpload={onUpload} />
+          {'image' in item || 'icon' in item ? (
+            <ImageInput label="Imagem" value={item.image ?? ''} onChange={(value) => update(index, 'image', value)} onUpload={onUpload} />
           ) : null}
           {'wide' in item ? (
             <CheckboxInput label="Imagem larga" value={item.wide} onChange={(value) => update(index, 'wide', value)} />
@@ -227,7 +227,7 @@ function createItemModelo(item = {}) {
     return { label: 'Nova imagem', image: '', wide: false }
   }
 
-  return { icon: '✨', label: 'Novo item' }
+  return { icon: '✨', label: 'Novo item', image: '' }
 }
 
 function ImagesEditor({ items, onChange, onUpload }) {
