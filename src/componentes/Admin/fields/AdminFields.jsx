@@ -32,6 +32,22 @@ export function TextArea({ label, value = '', onChange }) {
   )
 }
 
+export function RatingInput({ label, value = 5, onChange }) {
+  return (
+    <label className="field">
+      <span>{label}</span>
+      <select value={value} onChange={(event) => onChange(Number(event.target.value))}>
+        {[1, 2, 3, 4, 5].map((option) => (
+          <option key={option} value={option}>
+            {'★'.repeat(option)}
+            {'☆'.repeat(5 - option)}
+          </option>
+        ))}
+      </select>
+    </label>
+  )
+}
+
 export function CheckboxInput({ label, value = false, onChange }) {
   return (
     <label className="check-field">

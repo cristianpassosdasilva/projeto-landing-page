@@ -80,8 +80,23 @@ export const defaultContent = {
       'Cada visita é uma experiência única, onde tradição e inovação se encontram para celebrar a sua essência.',
       'Hoje, somos reconhecidos como um espaço exclusivo, onde a beleza se transforma em luxo e cada detalhe reflete a verdadeira elegância.',
     ],
-    imageLabel: "Foto da Laud's",
-    image: '',
+    images: [
+      {
+        label: "Foto da Laud's",
+        image: '',
+        gradient: 'linear-gradient(135deg, #e9cfe4, #d080c0)',
+      },
+      {
+        label: 'Estação de cabelo',
+        image: '',
+        gradient: 'linear-gradient(135deg, #d8a8d0, #954b92)',
+      },
+      {
+        label: 'Recepção',
+        image: '',
+        gradient: 'linear-gradient(135deg, #f3e6f1, #bf63ad)',
+      },
+    ],
   },
   testimonials: {
     label: 'Clientes reais',
@@ -95,12 +110,14 @@ export const defaultContent = {
         location: 'Ituiutaba - MG',
         quote:
           'Excelência no atendimento, um trabalho perfeito. Exatamente o que esperávamos, só temos agradecimento e elogios a toda a equipe.',
+        rating: 5,
       },
       {
         initial: 'L',
         name: 'Luciana F.',
         location: 'Ituiutaba - MG',
         quote: 'O melhor atendimento e uma equipe competente e carinhosa.',
+        rating: 5,
       },
       {
         initial: 'Q',
@@ -108,6 +125,7 @@ export const defaultContent = {
         location: 'Ituiutaba - MG',
         quote:
           'Ótimo lugar pra quem está precisando se arrumar pra festa, casamento etc. Excelente profissional, ambiente lindo pra noivas e madrinhas.',
+        rating: 5,
       },
     ],
   },

@@ -533,8 +533,11 @@
 
 .testimonial-carousel {
   position: relative;
+  padding: 8px 64px;
+}
+
+.testimonial-viewport {
   overflow: hidden;
-  padding: 8px 4px;
 }
 
 .testimonial-track {
@@ -1055,7 +1058,8 @@ footer .logo-text {
 }
 
 .field input,
-.field textarea {
+.field textarea,
+.field select {
   width: 100%;
   min-height: 44px;
   padding: 11px 12px;
@@ -1073,7 +1077,8 @@ footer .logo-text {
 }
 
 .field input:focus,
-.field textarea:focus {
+.field textarea:focus,
+.field select:focus {
   border-color: var(--p400);
   box-shadow: 0 0 0 3px rgba(191, 99, 173, 0.12);
 }
@@ -1236,6 +1241,10 @@ footer .logo-text {
 
   .testimonial-nav {
     display: none;
+  }
+
+  .testimonial-carousel {
+    padding: 8px 4px;
   }
 
   .admin-tabs {
