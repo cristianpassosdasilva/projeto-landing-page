@@ -1,6 +1,6 @@
 // import ChamadaAcao from './principal/Secoes/ChamadaAcao/ChamadaAcao'
 import Contato from './principal/Secoes/Contato/Contato'
-// import Depoimentos from './principal/Secoes/Depoimentos/Depoimentos'
+import Depoimentos from './principal/Secoes/Depoimentos/Depoimentos'
 // import DestaqueInicial from './principal/Secoes/DestaqueInicial/DestaqueInicial'
 // import Galeria from './principal/Secoes/Galeria/Galeria'
 import Historia from './principal/Secoes/Historia/Historia'
@@ -72,24 +72,24 @@ export const registroSecoes = {
       image: '',
     },
   },
-  // testimonials: {
-  //   label: 'Depoimentos',
-  //   component: Depoimentos,
-  //   defaultProps: {
-  //     label: 'Clientes reais',
-  //     title: 'Experiências reais,',
-  //     highlight: 'resultados incríveis',
-  //     ratingText: '5.0 nas avaliações',
-  //     items: [
-  //       {
-  //         initial: 'C',
-  //         name: 'Cliente',
-  //         location: 'Cidade - UF',
-  //         quote: 'Novo depoimento.',
-  //       },
-  //     ],
-  //   },
-  // },
+  testimonials: {
+    label: 'Depoimentos',
+    component: Depoimentos,
+    defaultProps: {
+      label: 'Clientes reais',
+      title: 'Experiências reais,',
+      highlight: 'resultados incríveis',
+      ratingText: '5.0 nas avaliações',
+      items: [
+        {
+          initial: 'C',
+          name: 'Cliente',
+          location: 'Cidade - UF',
+          quote: 'Novo depoimento.',
+        },
+      ],
+    },
+  },
   faq: {
     label: 'FAQ',
     component: PerguntasFrequentes,
