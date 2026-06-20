@@ -23,7 +23,7 @@ export default function Servicos({ props }) {
 
     const timer = window.setInterval(() => {
       setServiceSlide((current) => (current + 1) % serviceImages.length)
-    }, 3600)
+    }, 10000)
 
     return () => window.clearInterval(timer)
   }, [serviceImages.length])
@@ -45,7 +45,13 @@ export default function Servicos({ props }) {
                 type="button"
                 onClick={() => setServiceSlide(index % serviceImages.length)}
               >
-                <span className="service-icon">{service.icon}</span>
+                <span className="service-icon">
+                  {service.image ? (
+                    <img src={service.image} alt={service.label} />
+                  ) : (
+                    service.icon
+                  )}
+                </span>
                 <span>{service.label}</span>
               </button>
             ))}

@@ -27,12 +27,12 @@ export const defaultContent = {
     subtitle:
       'Sua melhor versão começa no espelho. Veja alguns dos nossos serviços.',
     items: [
-      { icon: '👰', label: 'Noivas' },
-      { icon: '💄', label: 'Maquiagem' },
-      { icon: '💇‍♀️', label: 'Penteados' },
-      { icon: '✂️', label: 'Corte de cabelo' },
-      { icon: '💅', label: 'Nail Designer' },
-      { icon: '🎉', label: 'Aniversários' },
+      { icon: '👰', label: 'Noivas', image: '' },
+      { icon: '💄', label: 'Maquiagem', image: '' },
+      { icon: '💇‍♀️', label: 'Penteados', image: '' },
+      { icon: '✂️', label: 'Corte de cabelo', image: '' },
+      { icon: '💅', label: 'Nail Designer', image: '' },
+      { icon: '🎉', label: 'Aniversários', image: '' },
     ],
     images: [
       {
@@ -163,7 +163,7 @@ export const defaultContent = {
       'Coloração',
       'Maquiagem',
       'Noivas e eventos',
-      'Nail Designer',
+      'Manicure e Pedicure',
       'Outro',
     ],
   },

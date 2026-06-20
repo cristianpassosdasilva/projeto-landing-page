@@ -150,8 +150,8 @@
   align-items: center;
   gap: 10px;
   color: var(--p700);
-  font-size: 0.74rem;
-  font-weight: 800;
+  font-size: 1.05rem;
+  font-weight: 700;
   letter-spacing: 0.13em;
   text-transform: uppercase;
 }
@@ -301,11 +301,30 @@
   font-size: 1.06rem;
 }
 
+.services-section .section-head {
+  max-width: 600px;
+  margin: 0 auto 44px;
+}
+
+.services-section .section-head h2 {
+  font-family: '42dot Sans', sans-serif;
+  font-size: 2.6rem;
+  font-weight: 700;
+}
+
+.services-section .section-head p {
+  font-family: '42dot Sans', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 400;
+}
+
 .services-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(330px, 0.92fr);
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 0.85fr);
+  max-width: 980px;
+  margin: 0 auto;
   align-items: center;
-  gap: 58px;
+  gap: 36px;
 }
 
 .service-grid {
@@ -331,6 +350,7 @@
   display: grid;
   width: 98px;
   height: 98px;
+  overflow: hidden;
   place-items: center;
   background: var(--grad-soft);
   border: 3px solid transparent;
@@ -340,6 +360,12 @@
     transform 0.25s var(--ease),
     border 0.25s var(--ease),
     box-shadow 0.25s var(--ease);
+}
+
+.service-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .service-item:hover .service-icon {
