@@ -1,17 +1,14 @@
 import { useEffect, useRef, useState } from 'react'; // importa React, hooks e ref
 import './Galeria_module.css'; // importa o CSS local da galeria
-
-// importa as imagens da pasta src/img
-import img1 from '../../../img/instalacoes_01.png';
-import img2 from '../../../img/instalacoes_02.png';
-import img3 from '../../../img/instalacoes_03.png';
-import img4 from '../../../img/instalacoes_04.png';
-import laudsImg from '../../../img/lauds.jpeg'; // imagem circular solicitada (lauds.png)
 import TituloSecao from '../../Comuns/TituloSecao/TituloSecao';
 
 // componente Galeria: bloco autoridade com carousel automático de miniaturas
 export default function Galeria({ props }) {
-    const thumbs = [img1, img2, img3, img4] // miniaturas usadas no bloco
+    const safeProps = props || {}
+    const circlePhoto = safeProps.image || ''
+    const thumbs = (safeProps.items || [])
+        .map((item) => item.image)
+        .filter(Boolean) // só as miniaturas que já têm imagem enviada pelo admin
     const [index, setIndex] = useState(0) // controle do slide atual do carousel
     const refs = useRef([]) // refs para as miniaturas
     const intervalRef = useRef(null) // ref para o intervalo automático
@@ -21,7 +18,6 @@ export default function Galeria({ props }) {
     const [isVisible, setIsVisible] = useState(false) // se a seção está visível na viewport
 
     // padroniza props do cabeçalho usando o mesmo padrão das outras seções
-    const safeProps = props || {}
     const {
         label = 'NOSSO TRABALHO',
         title = '',
@@ -31,11 +27,13 @@ export default function Galeria({ props }) {
 
     // função para avançar o carousel
     function next() {
+        if (thumbs.length === 0) return
         setIndex((i) => (i + 1) % thumbs.length)
     }
 
     // função para retroceder o carousel
     function prev() {
+        if (thumbs.length === 0) return
         setIndex((i) => (i - 1 + thumbs.length) % thumbs.length)
     }
 
@@ -52,9 +50,11 @@ export default function Galeria({ props }) {
     // autoplay a cada 5 segundos; inicia apenas quando a seção estiver visível e o modal fechado
     useEffect(() => {
         clearInterval(intervalRef.current)
-        if (isVisible && modalIndex === null) intervalRef.current = setInterval(next, 5000)
+        if (isVisible && modalIndex === null && thumbs.length > 1) {
+            intervalRef.current = setInterval(next, 5000)
+        }
         return () => clearInterval(intervalRef.current)
-    }, [isVisible, modalIndex])
+    }, [isVisible, modalIndex, thumbs.length])
 
     // pausar autoplay ao passar o mouse
     function pause() {
@@ -63,7 +63,7 @@ export default function Galeria({ props }) {
 
     function resume() {
         clearInterval(intervalRef.current)
-        if (modalIndex === null) intervalRef.current = setInterval(next, 5000)
+        if (modalIndex === null && thumbs.length > 1) intervalRef.current = setInterval(next, 5000)
     }
 
     // funções do modal
@@ -78,10 +78,12 @@ export default function Galeria({ props }) {
     }
 
     function nextModal() {
+        if (thumbs.length === 0) return
         setModalIndex((i) => (i + 1) % thumbs.length)
     }
 
     function prevModal() {
+        if (thumbs.length === 0) return
         setModalIndex((i) => (i - 1 + thumbs.length) % thumbs.length)
     }
 
@@ -115,9 +117,11 @@ export default function Galeria({ props }) {
                 <div className="authority-work-section"> {/* bloco com imagem circular */}
                     <div className="authority-work-layout">
                         <div className="author-right"> {/* imagem agora à esquerda visualmente via CSS invertido */}
-                            <div className="circle-photo-wrap">
-                                <img className="circle-photo" src={laudsImg} alt="Laud's" />
-                            </div>
+                            {circlePhoto ? (
+                                <div className="circle-photo-wrap">
+                                    <img className="circle-photo" src={circlePhoto} alt="Laud's" />
+                                </div>
+                            ) : null}
                         </div>
 
                         <div className="author-left"> {/* texto à direita */}
@@ -125,25 +129,27 @@ export default function Galeria({ props }) {
                         </div>
                     </div>
 
-                    <div className="thumbs-carousel" onMouseEnter={pause} onMouseLeave={resume}> {/* carousel de miniaturas */}
-                        <button className="carousel-btn prev" onClick={prev} aria-label="Anterior">‹</button>
-                        <div ref={trackRef} className="thumbs-track"> {/* faixa rolável */}
-                            {thumbs.map((src, i) => (
-                                <div
-                                    key={i}
-                                    className={`thumb-item ${i === index ? 'active' : ''}`}
-                                    ref={(el) => (refs.current[i] = el)}
-                                    onClick={() => openModal(i)}
-                                >
-                                    <img src={src} alt={`Thumb ${i + 1}`} />
-                                </div>
-                            ))}
+                    {thumbs.length > 0 ? (
+                        <div className="thumbs-carousel" onMouseEnter={pause} onMouseLeave={resume}> {/* carousel de miniaturas */}
+                            <button className="carousel-btn prev" onClick={prev} aria-label="Anterior">‹</button>
+                            <div ref={trackRef} className="thumbs-track"> {/* faixa rolável */}
+                                {thumbs.map((src, i) => (
+                                    <div
+                                        key={i}
+                                        className={`thumb-item ${i === index ? 'active' : ''}`}
+                                        ref={(el) => (refs.current[i] = el)}
+                                        onClick={() => openModal(i)}
+                                    >
+                                        <img src={src} alt={`Thumb ${i + 1}`} />
+                                    </div>
+                                ))}
+                            </div>
+                            <button className="carousel-btn next" onClick={next} aria-label="Próxima">›</button>
                         </div>
-                        <button className="carousel-btn next" onClick={next} aria-label="Próxima">›</button>
-                    </div>
+                    ) : null}
                 </div>
             </div>
-            {modalIndex !== null && (
+            {modalIndex !== null && thumbs.length > 0 && (
                 <div
                     className="modal-overlay"
                     onClick={(e) => { if (e.target.classList && e.target.classList.contains('modal-overlay')) closeModal() }}

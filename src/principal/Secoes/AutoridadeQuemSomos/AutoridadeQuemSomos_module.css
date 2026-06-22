@@ -21,7 +21,7 @@
     bottom: 0;
     margin-left: auto;
     width: 66%; /* ocupa lateral direita da seção */
-    background-image: url('../../../img/acessorios.png');
+    background-image: var(--about-watermark, none);
     background-repeat: no-repeat;
     background-position: center right;
     background-size: cover;

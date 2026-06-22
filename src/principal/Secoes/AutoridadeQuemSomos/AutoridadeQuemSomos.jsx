@@ -1,4 +1,3 @@
-import imagem from '../../../img/acessorios.png'
 import TituloSecao from '../../Comuns/TituloSecao/TituloSecao'
 import './AutoridadeQuemSomos_module.css'
 
@@ -10,8 +9,7 @@ export default function AutoridadeQuemSomos({ props }) {
         highlight = 'salão de beleza',
         subtitle = 'Somos um espaço premium onde técnica, acolhimento e sofisticação se encontram.',
         text = '.',
-        image = imagem,
-        imageLabel = 'Imagem sobre quem somos',
+        image = '',
         highlights = ['Atendimento personalizado', 'Equipe especializada', 'Resultados sofisticados', 'Ambiente acolhedor e famiiliar'],
     } = safeProps
 
@@ -22,7 +20,11 @@ export default function AutoridadeQuemSomos({ props }) {
     const highlightItems = Array.isArray(highlights) ? highlights.filter(Boolean) : []
 
     return (
-        <section id="historia" className="section about-section">
+        <section
+            id="historia"
+            className="section about-section"
+            style={{ '--about-watermark': image ? `url(${image})` : 'none' }}
+        >
             <div className="wrap about-layout">
                 <div className="about-copy">
                     <TituloSecao label={label} title={title} highlight={highlight} subtitle={subtitle} />
