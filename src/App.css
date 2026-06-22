@@ -52,11 +52,11 @@
 
 .logo-text {
   font-family: var(--heading);
-  font-size: 1.75rem;
+  font-size: clamp(24px, 3vw, 36px);
   font-weight: 800;
   letter-spacing: -0.04em;
   color: var(--p800);
-  background: var(--grad-text);
+  background: linear-gradient(90deg, #5E2F5B 0%, #A8499A 50%, #D080C0 100%);
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -65,7 +65,7 @@
   display: block;
   margin-top: 5px;
   color: var(--n400);
-  font-size: 0.55rem;
+  font-size: clamp(12px, 1.5vw, 14px);
   font-weight: 600;
   letter-spacing: 0.2em;
   text-transform: uppercase;

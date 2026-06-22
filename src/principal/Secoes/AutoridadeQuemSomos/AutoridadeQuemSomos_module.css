@@ -1,0 +1,160 @@
+.about-section {
+    position: relative;
+    overflow: hidden;
+    padding: 96px 0 110px;
+    background:
+        radial-gradient(circle at top left, rgba(208, 128, 192, 0.16), transparent 28%),
+        linear-gradient(135deg, rgba(250, 245, 249, 0.96), rgba(243, 230, 241, 0.96));
+}
+
+.about-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.5), transparent 45%);
+    pointer-events: none;
+
+    content: '';
+    position: absolute;
+    top:0;
+    right: 0;
+    bottom: 0;
+    margin-left: auto;
+    width: 66%; /* ocupa lateral direita da seção */
+    background-image: url('../../../img/acessorios.png');
+    background-repeat: no-repeat;
+    background-position: center right;
+    background-size: cover;
+    opacity: 0.20; /* transparência para efeito de marca d'água */
+    pointer-events: none;
+    z-index: 0;
+}
+
+.about-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+    gap: 48px;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+.about-copy {
+    max-width: 620px;
+}
+
+.about-copy .section-head {
+    margin-bottom: 24px;
+    text-align: left;
+}
+
+.about-copy .section-head h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--n850);
+}
+
+.about-copy .section-head p {
+    margin-top: 14px;
+    color: var(--n550);
+    font-size: 1.02rem;
+    line-height: 1.8;
+}
+
+.about-text-block {
+    display: grid;
+    gap: 14px;
+    margin-bottom: 24px;
+}
+
+.about-text-block p {
+    margin: 0;
+    color: var(--n550);
+    font-size: 1rem;
+    line-height: 1.8;
+    text-align: justify;
+    padding-right: 32px;
+}
+
+.about-highlights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 8px;
+    padding-right: 45px;
+    width: 100%;
+    justify-content: center; /* centraliza os itens horizontalmente */
+    text-align: center;
+    align-items: center;
+}
+
+.about-highlights span {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.75);
+    border: 1px solid rgba(208, 128, 192, 0.24);
+    color: var(--p700);
+    font-size: 0.95rem;
+    font-weight: 600;
+    box-shadow: 0 8px 24px rgba(94, 47, 91, 0.06);
+}
+
+.about-highlights span::before {
+    content: '✦';
+    color: var(--p500);
+}
+
+
+
+
+
+
+
+@media (max-width: 900px) {
+    .about-section {
+        padding: 72px 0 90px;
+    }
+
+    /* esconder marca d'água em telas menores */
+    .about-section::after {
+        display: none;
+    }
+
+    .about-layout {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .about-copy {
+        max-width: none;
+    }
+
+    .about-copy .section-head {
+        text-align: left;
+    }
+}
+
+@media (max-width: 640px) {
+    .about-section {
+        padding: 64px 0 80px;
+    }
+
+    .about-card {
+        padding: 16px;
+    }
+
+    .about-figure {
+        aspect-ratio: 4 / 4.2;
+    }
+
+    .about-highlights {
+        gap: 10px;
+    }
+
+    .about-highlights span {
+        width: 100%;
+        justify-content: center;
+    }
+}
