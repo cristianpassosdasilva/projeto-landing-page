@@ -7,12 +7,12 @@ export default function Servicos({ props }) {
   const serviceImages = props.images.length
     ? props.images
     : [
-        {
-          label: 'Imagem do serviço',
-          image: '',
-          gradient: 'linear-gradient(135deg, #e9cfe4, #d080c0)',
-        },
-      ]
+      {
+        label: 'Imagem do serviço',
+        image: '',
+        gradient: 'linear-gradient(135deg, #e9cfe4, #d080c0)',
+      },
+    ]
   const activeServiceSlide = serviceSlide % serviceImages.length
   const currentServiceImage = serviceImages[activeServiceSlide] || serviceImages[0]
 
@@ -61,7 +61,7 @@ export default function Servicos({ props }) {
               onClick={() =>
                 setServiceSlide(
                   (activeServiceSlide - 1 + serviceImages.length) %
-                    serviceImages.length,
+                  serviceImages.length,
                 )
               }
             >

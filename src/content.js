@@ -19,8 +19,9 @@ export const defaultContent = {
     title: 'Não somos apenas um',
     highlight: 'salão de beleza',
     text:
-      'Somos um destino de elegância e bem-estar. Cada visita é uma celebração da sua essência, um momento único de cuidado e sofisticação. Porque você merece viver o extraordinário, onde sua beleza se torna o palco da verdadeira elegância.',
+      'Nossa missão é proporcionar uma experiência de beleza única, combinando atendimento personalizado, equipe especializada e um ambiente acolhedor para realçar a sua melhor versão',
   },
+  
   services: {
     label: 'O que fazemos',
     title: 'Nossos serviços',
@@ -61,7 +62,7 @@ export const defaultContent = {
     label: 'Nosso trabalho',
     title: 'Somos assim...',
     subtitle:
-      'Sua melhor versão começa no espelho. Veja alguns dos nossos serviços.',
+      'Nós entendemos de beleza porque vivemos ela com você. Experiências personalizadas para sua beleza e bem-estar',
     items: [
       { label: 'Imagens do serviço', image: '', wide: false },
       { label: 'Imagens do serviço', image: '', wide: false },

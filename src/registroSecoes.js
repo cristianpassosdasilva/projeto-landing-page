@@ -1,37 +1,41 @@
-// import ChamadaAcao from './principal/Secoes/ChamadaAcao/ChamadaAcao'
+import DestaqueInicial from './principal/Secoes/Chamada/Chamada'
 // import Contato from './principal/Secoes/Contato/Contato'
 // import Depoimentos from './principal/Secoes/Depoimentos/Depoimentos'
 // import DestaqueInicial from './principal/Secoes/DestaqueInicial/DestaqueInicial'
-// import Galeria from './principal/Secoes/Galeria/Galeria'
+import Galeria from './principal/Secoes/Galeria/Galeria'
 // import Historia from './principal/Secoes/Historia/Historia'
+import AutoridadeQuemSomos from './principal/Secoes/AutoridadeQuemSomos/AutoridadeQuemSomos'
 import PerguntasFrequentes from './principal/Secoes/PerguntasFrequentes/PerguntasFrequentes'
 import Servicos from './principal/Secoes/Servicos/Servicos'
-// import Sobre from './principal/Secoes/Sobre/Sobre'
 
 export const registroSecoes = {
-  // hero: {
-  //   label: 'Destaque inicial',
-  //   component: DestaqueInicial,
-  //   defaultProps: {
-  //     badge: 'Nova chamada',
-  //     title: 'Título principal',
-  //     highlight: 'Destaque',
-  //     subtitle: 'Texto de apoio da seção principal.',
-  //     primaryCta: 'Agendar agora',
-  //     secondaryCta: 'Ver serviços',
-  //     image: '',
-  //   },
-  // },
-  // about: {
-  //   label: 'Texto institucional',
-  //   component: Sobre,
-  //   defaultProps: {
-  //     label: 'Quem somos',
-  //     title: 'Título da seção',
-  //     highlight: 'destaque',
-  //     text: 'Texto da seção institucional.',
-  //   },
-  // },
+  hero: {
+    label: 'Destaque inicial',
+    component: DestaqueInicial,
+    defaultProps: {
+      badge: 'Nova chamada',
+      title: 'Título principal',
+      highlight: 'Destaque',
+      subtitle: 'Texto de apoio da seção principal.',
+      primaryCta: 'Agendar agora',
+      secondaryCta: 'Ver serviços',
+      image: '',
+    },
+  },
+  about: {
+    label: 'Quem somos',
+    component: AutoridadeQuemSomos,
+    defaultProps: {
+      label: 'Quem somos',
+      title: 'Não somos apenas um',
+      highlight: 'salão de beleza',
+      subtitle: 'Um espaço premium onde técnica, acolhimento e sofisticação se encontram.',
+      text: 'Somos um destino de elegância e bem-estar. Cada visita é uma experiência única, pensada para valorizar sua beleza e seu momento.',
+      image: '',
+      imageLabel: 'Ambiente premium do salão',
+      highlights: ['Atendimento personalizado', 'Equipe especializada', 'Resultados sofisticados'],
+    },
+  },
   services: {
     label: 'Serviços',
     component: Servicos,
@@ -49,16 +53,17 @@ export const registroSecoes = {
       ],
     },
   },
-  // gallery: {
-  //   label: 'Galeria',
-  //   component: Galeria,
-  //   defaultProps: {
-  //     label: 'Nosso trabalho',
-  //     title: 'Galeria',
-  //     subtitle: 'Veja alguns registros.',
-  //     items: [{ label: 'Nova imagem', image: '', wide: false }],
-  //   },
-  // },
+  gallery: {
+    label: 'Galeria',
+    component: Galeria,
+    defaultProps: {
+      label: 'Nosso trabalho',
+      title: '',
+      highlight: 'Somos assim...',
+      subtitle: 'Nós entendemos de beleza porque vivemos ela com você. Experiências personalizadas para sua beleza e bem-estar.',
+      items: [{ label: 'Nova imagem', image: '', wide: false }],
+    },
+  },
   // history: {
   //   label: 'História',
   //   component: Historia,
