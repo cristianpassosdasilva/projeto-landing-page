@@ -119,17 +119,21 @@ export const registroSecoes = {
       subjects: ['Corte de cabelo', 'Maquiagem', 'Outro'],
     },
   },
-  cta: {
-    label: 'Chamada',
-    component: Chamada,
-    defaultProps: {
-      label: 'Chamada',
-      title: 'Pronta para se transformar?',
-      text: 'Agende seu horário agora.',
-      buttonText: 'Falar no WhatsApp',
-      href: '#contato',
-    },
-  },
+  // cta: ainda não tem um componente próprio — "Chamada" já é usado no hero
+  // e tem texto fixo no JSX, então reaproveitá-lo aqui duplicaria o banner
+  // de abertura no fim da página. Criar um componente dedicado antes de
+  // reativar este registro.
+  // cta: {
+  //   label: 'Chamada',
+  //   component: ChamadaFinal,
+  //   defaultProps: {
+  //     label: 'Chamada',
+  //     title: 'Pronta para se transformar?',
+  //     text: 'Agende seu horário agora.',
+  //     buttonText: 'Falar no WhatsApp',
+  //     href: '#contato',
+  //   },
+  // },
 }
 
 export function createSection(type, orderIndex) {
