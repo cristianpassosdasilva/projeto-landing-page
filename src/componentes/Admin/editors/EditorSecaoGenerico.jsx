@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { getValueAtPath, setValueAtPath } from '../../../utilitarios/caminhoObjeto'
 import {
   AdminCard,
@@ -8,6 +9,7 @@ import {
   TextArea,
   TextInput,
 } from '../fields/AdminFields'
+import GoogleReviewsPicker from './GoogleReviewsPicker'
 
 function updateArrayItem(source, path, index, key, value) {
   return setValueAtPath(source, [...path, index, key], value)
@@ -118,6 +120,12 @@ export default function EditorSecaoGenerico({ section, onChange, onUpload }) {
           )}
         />
       ) : null}
+      {'items' in props && section.type === 'testimonials' ? (
+        <GoogleReviewsPicker
+          onAddItems={(newItems) => updateProp(['items'], [...props.items, ...newItems])}
+          onUpdateRatingText={(value) => updateProp(['ratingText'], value)}
+        />
+      ) : null}
       {'items' in props ? (
         <ItemsEditor
           items={props.items}
@@ -154,6 +162,7 @@ function ArrayEditor({ addLabel, items, onAdd, onRemove, renderItem }) {
 
 function ItemsEditor({ items, onChange, onUpload }) {
   const itemModelo = createItemModelo(items[0])
+  const [selectedIndexes, setSelectedIndexes] = useState(() => new Set())
 
   function update(index, key, value) {
     onChange(updateArrayItem({ items }, ['items'], index, key, value).items)
@@ -163,10 +172,35 @@ function ItemsEditor({ items, onChange, onUpload }) {
     onChange([...items, itemModelo])
   }
 
+  function toggleSelected(index) {
+    setSelectedIndexes((current) => {
+      const next = new Set(current)
+      if (next.has(index)) {
+        next.delete(index)
+      } else {
+        next.add(index)
+      }
+      return next
+    })
+  }
+
+  function removeSelected() {
+    onChange(items.filter((_, index) => !selectedIndexes.has(index)))
+    setSelectedIndexes(new Set())
+  }
+
   return (
     <AdminCard>
       {items.map((item, index) => (
         <div className="array-row" key={`item-${index}`}>
+          <label className="check-field item-select">
+            <input
+              checked={selectedIndexes.has(index)}
+              type="checkbox"
+              onChange={() => toggleSelected(index)}
+            />
+            <span>Selecionar</span>
+          </label>
           {'icon' in item ? (
             <TextInput label="Ícone" value={item.icon} onChange={(value) => update(index, 'icon', value)} />
           ) : null}
@@ -208,7 +242,14 @@ function ItemsEditor({ items, onChange, onUpload }) {
           </MiniButton>
         </div>
       ))}
-      <MiniButton onClick={add}>Adicionar item</MiniButton>
+      <div className="array-row-actions">
+        <MiniButton onClick={add}>Adicionar item</MiniButton>
+        {selectedIndexes.size > 0 ? (
+          <MiniButton className="danger" onClick={removeSelected}>
+            Remover selecionados ({selectedIndexes.size})
+          </MiniButton>
+        ) : null}
+      </div>
     </AdminCard>
   )
 }

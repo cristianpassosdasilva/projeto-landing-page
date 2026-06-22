@@ -1186,6 +1186,115 @@ footer .logo-text {
   flex: 1 1 220px;
 }
 
+.array-row .item-select {
+  flex: 0 0 100%;
+  order: -1;
+}
+
+.array-row-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.google-reviews-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  grid-column: 1 / -1;
+}
+
+.google-reviews-head h3 {
+  margin: 0;
+  color: var(--n850);
+  font-size: 1rem;
+}
+
+.google-rating-summary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  grid-column: 1 / -1;
+  padding: 10px 14px;
+  background: var(--n50);
+  border: 1px solid var(--n200);
+  border-radius: 10px;
+  color: var(--n600);
+  font-size: 0.86rem;
+}
+
+.google-reviews-grid {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+.google-review-card {
+  position: relative;
+  display: grid;
+  gap: 8px;
+  padding: 14px;
+  background: #fff;
+  border: 1px solid var(--n200);
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.google-review-card:has(input:checked) {
+  border-color: var(--p400);
+  box-shadow: 0 0 0 3px rgba(191, 99, 173, 0.12);
+}
+
+.google-review-card input[type='checkbox'] {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 18px;
+  height: 18px;
+  accent-color: var(--p600);
+}
+
+.google-review-who {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-right: 24px;
+}
+
+.google-review-who img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.google-review-who strong {
+  display: block;
+  color: var(--n850);
+  font-size: 0.9rem;
+}
+
+.google-review-who small {
+  color: var(--n500);
+}
+
+.google-review-card .stars {
+  color: var(--p600);
+}
+
+.google-review-card p {
+  margin: 0;
+  color: var(--n600);
+  font-size: 0.86rem;
+  line-height: 1.4;
+}
+
 .login-page {
   display: grid;
   place-items: center;
