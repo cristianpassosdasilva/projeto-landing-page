@@ -1,26 +1,17 @@
-<<<<<<< HEAD
-import DestaqueInicial from './principal/Secoes/Chamada/Chamada'
-// import Contato from './principal/Secoes/Contato/Contato'
-// import Depoimentos from './principal/Secoes/Depoimentos/Depoimentos'
-// import DestaqueInicial from './principal/Secoes/DestaqueInicial/DestaqueInicial'
-import Galeria from './principal/Secoes/Galeria/Galeria'
-// import Historia from './principal/Secoes/Historia/Historia'
-import AutoridadeQuemSomos from './principal/Secoes/AutoridadeQuemSomos/AutoridadeQuemSomos'
-=======
-// import ChamadaAcao from './principal/Secoes/ChamadaAcao/ChamadaAcao'
+import Chamada from './principal/Secoes/Chamada/Chamada'
 import Contato from './principal/Secoes/Contato/Contato'
 import Depoimentos from './principal/Secoes/Depoimentos/Depoimentos'
 // import DestaqueInicial from './principal/Secoes/DestaqueInicial/DestaqueInicial'
-// import Galeria from './principal/Secoes/Galeria/Galeria'
+import AutoridadeQuemSomos from './principal/Secoes/AutoridadeQuemSomos/AutoridadeQuemSomos'
+import Galeria from './principal/Secoes/Galeria/Galeria'
 import Historia from './principal/Secoes/Historia/Historia'
->>>>>>> origin/main
 import PerguntasFrequentes from './principal/Secoes/PerguntasFrequentes/PerguntasFrequentes'
 import Servicos from './principal/Secoes/Servicos/Servicos'
 
 export const registroSecoes = {
   hero: {
     label: 'Destaque inicial',
-    component: DestaqueInicial,
+    component: Chamada,
     defaultProps: {
       badge: 'Nova chamada',
       title: 'Título principal',
@@ -62,60 +53,16 @@ export const registroSecoes = {
       ],
     },
   },
-<<<<<<< HEAD
   gallery: {
     label: 'Galeria',
     component: Galeria,
     defaultProps: {
       label: 'Nosso trabalho',
-      title: '',
-      highlight: 'Somos assim...',
-      subtitle: 'Nós entendemos de beleza porque vivemos ela com você. Experiências personalizadas para sua beleza e bem-estar.',
+      title: 'Galeria',
+      subtitle: 'Veja alguns registros.',
       items: [{ label: 'Nova imagem', image: '', wide: false }],
     },
   },
-  // history: {
-  //   label: 'História',
-  //   component: Historia,
-  //   defaultProps: {
-  //     label: 'Nossa trajetória',
-  //     title: 'Título da história',
-  //     heading: 'Chamada',
-  //     highlight: 'Destaque',
-  //     paragraphs: ['Primeiro parágrafo da história.'],
-  //     imageLabel: 'Foto',
-  //     image: '',
-  //   },
-  // },
-  // testimonials: {
-  //   label: 'Depoimentos',
-  //   component: Depoimentos,
-  //   defaultProps: {
-  //     label: 'Clientes reais',
-  //     title: 'Experiências reais,',
-  //     highlight: 'resultados incríveis',
-  //     ratingText: '5.0 nas avaliações',
-  //     items: [
-  //       {
-  //         initial: 'C',
-  //         name: 'Cliente',
-  //         location: 'Cidade - UF',
-  //         quote: 'Novo depoimento.',
-  //       },
-  //     ],
-  //   },
-  // },
-=======
-  // gallery: {
-  //   label: 'Galeria',
-  //   component: Galeria,
-  //   defaultProps: {
-  //     label: 'Nosso trabalho',
-  //     title: 'Galeria',
-  //     subtitle: 'Veja alguns registros.',
-  //     items: [{ label: 'Nova imagem', image: '', wide: false }],
-  //   },
-  // },
   history: {
     label: 'História',
     component: Historia,
@@ -147,7 +94,6 @@ export const registroSecoes = {
       ],
     },
   },
->>>>>>> origin/main
   faq: {
     label: 'FAQ',
     component: PerguntasFrequentes,
@@ -173,17 +119,17 @@ export const registroSecoes = {
       subjects: ['Corte de cabelo', 'Maquiagem', 'Outro'],
     },
   },
-  // cta: {
-  //   label: 'Chamada',
-  //   component: ChamadaAcao,
-  //   defaultProps: {
-  //     label: 'Chamada',
-  //     title: 'Pronta para se transformar?',
-  //     text: 'Agende seu horário agora.',
-  //     buttonText: 'Falar no WhatsApp',
-  //     href: '#contato',
-  //   },
-  // },
+  cta: {
+    label: 'Chamada',
+    component: Chamada,
+    defaultProps: {
+      label: 'Chamada',
+      title: 'Pronta para se transformar?',
+      text: 'Agende seu horário agora.',
+      buttonText: 'Falar no WhatsApp',
+      href: '#contato',
+    },
+  },
 }
 
 export function createSection(type, orderIndex) {
