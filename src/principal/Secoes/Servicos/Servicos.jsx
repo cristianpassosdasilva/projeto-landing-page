@@ -1,12 +1,13 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import TituloSecao from '../../Comuns/TituloSecao/TituloSecao'
-import { imageStyle } from '../../../utilitarios/estiloImagem'
+import Carrossel from '../../Comuns/Carrossel/Carrossel'
 
 export default function Servicos({ props }) {
   const [serviceSlide, setServiceSlide] = useState(0)
   const serviceImages = props.images.length
     ? props.images
     : [
+<<<<<<< HEAD
       {
         label: 'Imagem do serviço',
         image: '',
@@ -27,6 +28,14 @@ export default function Servicos({ props }) {
 
     return () => window.clearInterval(timer)
   }, [serviceImages.length])
+=======
+        {
+          label: 'Imagem do serviço',
+          image: '',
+          gradient: 'linear-gradient(135deg, #e9cfe4, #d080c0)',
+        },
+      ]
+>>>>>>> origin/main
 
   return (
     <section id="servicos" className="section services-section">
@@ -45,13 +54,21 @@ export default function Servicos({ props }) {
                 type="button"
                 onClick={() => setServiceSlide(index % serviceImages.length)}
               >
-                <span className="service-icon">{service.icon}</span>
+                <span className="service-icon">
+                  {service.image ? (
+                    <img src={service.image} alt={service.label} />
+                  ) : (
+                    service.icon
+                  )}
+                </span>
                 <span>{service.label}</span>
               </button>
             ))}
           </div>
-          <div
+          <Carrossel
+            images={serviceImages}
             className="image-carousel"
+<<<<<<< HEAD
             style={imageStyle(currentServiceImage.image, currentServiceImage.gradient)}
           >
             <button
@@ -90,6 +107,11 @@ export default function Servicos({ props }) {
               ))}
             </div>
           </div>
+=======
+            activeIndex={serviceSlide}
+            onChangeIndex={setServiceSlide}
+          />
+>>>>>>> origin/main
         </div>
       </div>
     </section>

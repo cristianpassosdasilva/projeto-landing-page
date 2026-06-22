@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import DestaqueInicial from './principal/Secoes/Chamada/Chamada'
 // import Contato from './principal/Secoes/Contato/Contato'
 // import Depoimentos from './principal/Secoes/Depoimentos/Depoimentos'
@@ -5,6 +6,14 @@ import DestaqueInicial from './principal/Secoes/Chamada/Chamada'
 import Galeria from './principal/Secoes/Galeria/Galeria'
 // import Historia from './principal/Secoes/Historia/Historia'
 import AutoridadeQuemSomos from './principal/Secoes/AutoridadeQuemSomos/AutoridadeQuemSomos'
+=======
+// import ChamadaAcao from './principal/Secoes/ChamadaAcao/ChamadaAcao'
+import Contato from './principal/Secoes/Contato/Contato'
+import Depoimentos from './principal/Secoes/Depoimentos/Depoimentos'
+// import DestaqueInicial from './principal/Secoes/DestaqueInicial/DestaqueInicial'
+// import Galeria from './principal/Secoes/Galeria/Galeria'
+import Historia from './principal/Secoes/Historia/Historia'
+>>>>>>> origin/main
 import PerguntasFrequentes from './principal/Secoes/PerguntasFrequentes/PerguntasFrequentes'
 import Servicos from './principal/Secoes/Servicos/Servicos'
 
@@ -53,6 +62,7 @@ export const registroSecoes = {
       ],
     },
   },
+<<<<<<< HEAD
   gallery: {
     label: 'Galeria',
     component: Galeria,
@@ -95,6 +105,49 @@ export const registroSecoes = {
   //     ],
   //   },
   // },
+=======
+  // gallery: {
+  //   label: 'Galeria',
+  //   component: Galeria,
+  //   defaultProps: {
+  //     label: 'Nosso trabalho',
+  //     title: 'Galeria',
+  //     subtitle: 'Veja alguns registros.',
+  //     items: [{ label: 'Nova imagem', image: '', wide: false }],
+  //   },
+  // },
+  history: {
+    label: 'História',
+    component: Historia,
+    defaultProps: {
+      label: 'Nossa trajetória',
+      title: 'Título da história',
+      heading: 'Chamada',
+      highlight: 'Destaque',
+      paragraphs: ['Primeiro parágrafo da história.'],
+      imageLabel: 'Foto',
+      image: '',
+    },
+  },
+  testimonials: {
+    label: 'Depoimentos',
+    component: Depoimentos,
+    defaultProps: {
+      label: 'Clientes reais',
+      title: 'Experiências reais,',
+      highlight: 'resultados incríveis',
+      ratingText: '5.0 nas avaliações',
+      items: [
+        {
+          initial: 'C',
+          name: 'Cliente',
+          location: 'Cidade - UF',
+          quote: 'Novo depoimento.',
+        },
+      ],
+    },
+  },
+>>>>>>> origin/main
   faq: {
     label: 'FAQ',
     component: PerguntasFrequentes,
@@ -102,24 +155,24 @@ export const registroSecoes = {
       label: 'Dúvidas',
       title: 'Você pode querer saber',
       cta: 'Ainda ficou com alguma dúvida? Fale conosco!',
-      items: [{ question: 'Nova pergunta?', answer: 'Nova resposta.' }],
+      items: [{ question: 'Nova pergunta?', answer: 'Nova resposta.', featured: true }],
     },
   },
-  // contact: {
-  //   label: 'Contato',
-  //   component: Contato,
-  //   defaultProps: {
-  //     label: 'Fale conosco',
-  //     title: 'O primeiro passo para',
-  //     highlight: 'sua transformação',
-  //     subtitle: 'Fale com quem entende de beleza',
-  //     phone: '(34) 3261-4709',
-  //     phoneHref: 'tel:3432614709',
-  //     whatsapp: '(34) 9 9643-4420',
-  //     whatsappHref: 'https://wa.me/5534996434420',
-  //     subjects: ['Corte de cabelo', 'Maquiagem', 'Outro'],
-  //   },
-  // },
+  contact: {
+    label: 'Contato',
+    component: Contato,
+    defaultProps: {
+      label: 'Fale conosco',
+      title: 'O primeiro passo para',
+      highlight: 'sua transformação',
+      subtitle: 'Fale com quem entende de beleza',
+      phone: '(34) 3261-4709',
+      phoneHref: 'tel:3432614709',
+      whatsapp: '(34) 9 9643-4420',
+      whatsappHref: 'https://wa.me/5534996434420',
+      subjects: ['Corte de cabelo', 'Maquiagem', 'Outro'],
+    },
+  },
   // cta: {
   //   label: 'Chamada',
   //   component: ChamadaAcao,

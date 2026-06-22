@@ -4,6 +4,7 @@ import {
   CheckboxInput,
   ImageInput,
   MiniButton,
+  RatingInput,
   TextArea,
   TextInput,
 } from '../fields/AdminFields'
@@ -69,10 +70,10 @@ export default function EditorSecaoGenerico({ section, onChange, onUpload }) {
       {'href' in props ? (
         <TextInput label="Link do botão" value={props.href} onChange={(value) => updateProp(['href'], value)} />
       ) : null}
-      {'image' in props ? (
+      {'image' in props && section.type !== 'history' ? (
         <ImageInput label="Imagem" value={props.image} onChange={(value) => updateProp(['image'], value)} onUpload={onUpload} />
       ) : null}
-      {'imageLabel' in props ? (
+      {'imageLabel' in props && section.type !== 'history' ? (
         <TextInput label="Legenda da imagem" value={props.imageLabel} onChange={(value) => updateProp(['imageLabel'], value)} />
       ) : null}
       {'phone' in props ? (
@@ -124,9 +125,9 @@ export default function EditorSecaoGenerico({ section, onChange, onUpload }) {
           onUpload={onUpload}
         />
       ) : null}
-      {'images' in props ? (
+      {'images' in props || section.type === 'history' ? (
         <ImagesEditor
-          items={props.images}
+          items={props.images || []}
           onChange={(nextImages) => updateProp(['images'], nextImages)}
           onUpload={onUpload}
         />
@@ -184,14 +185,20 @@ function ItemsEditor({ items, onChange, onUpload }) {
           {'quote' in item ? (
             <TextArea label="Depoimento" value={item.quote} onChange={(value) => update(index, 'quote', value)} />
           ) : null}
+          {'quote' in item ? (
+            <RatingInput label="Nota" value={item.rating ?? 5} onChange={(value) => update(index, 'rating', value)} />
+          ) : null}
           {'question' in item ? (
             <TextInput label="Pergunta" value={item.question} onChange={(value) => update(index, 'question', value)} />
           ) : null}
           {'answer' in item ? (
             <TextArea label="Resposta" value={item.answer} onChange={(value) => update(index, 'answer', value)} />
           ) : null}
-          {'image' in item ? (
-            <ImageInput label="Imagem" value={item.image} onChange={(value) => update(index, 'image', value)} onUpload={onUpload} />
+          {'question' in item ? (
+            <CheckboxInput label="Exibir nas primeiras 4" value={item.featured ?? true} onChange={(value) => update(index, 'featured', value)} />
+          ) : null}
+          {'image' in item || 'icon' in item ? (
+            <ImageInput label="Imagem" value={item.image ?? ''} onChange={(value) => update(index, 'image', value)} onUpload={onUpload} />
           ) : null}
           {'wide' in item ? (
             <CheckboxInput label="Imagem larga" value={item.wide} onChange={(value) => update(index, 'wide', value)} />
@@ -208,7 +215,7 @@ function ItemsEditor({ items, onChange, onUpload }) {
 
 function createItemModelo(item = {}) {
   if ('question' in item || 'answer' in item) {
-    return { question: 'Nova pergunta?', answer: 'Nova resposta.' }
+    return { question: 'Nova pergunta?', answer: 'Nova resposta.', featured: false }
   }
 
   if ('quote' in item || 'name' in item || 'initial' in item) {
@@ -217,6 +224,7 @@ function createItemModelo(item = {}) {
       name: 'Nova cliente',
       location: 'Ituiutaba - MG',
       quote: 'Novo depoimento.',
+      rating: 5,
     }
   }
 
@@ -224,7 +232,7 @@ function createItemModelo(item = {}) {
     return { label: 'Nova imagem', image: '', wide: false }
   }
 
-  return { icon: '✨', label: 'Novo item' }
+  return { icon: '✨', label: 'Novo item', image: '' }
 }
 
 function ImagesEditor({ items, onChange, onUpload }) {

@@ -28,12 +28,12 @@ export const defaultContent = {
     subtitle:
       'Sua melhor versão começa no espelho. Veja alguns dos nossos serviços.',
     items: [
-      { icon: '👰', label: 'Noivas' },
-      { icon: '💄', label: 'Maquiagem' },
-      { icon: '💇‍♀️', label: 'Penteados' },
-      { icon: '✂️', label: 'Corte de cabelo' },
-      { icon: '💅', label: 'Nail Designer' },
-      { icon: '🎉', label: 'Aniversários' },
+      { icon: '👰', label: 'Noivas', image: '' },
+      { icon: '💄', label: 'Maquiagem', image: '' },
+      { icon: '💇‍♀️', label: 'Penteados', image: '' },
+      { icon: '✂️', label: 'Corte de cabelo', image: '' },
+      { icon: '💅', label: 'Nail Designer', image: '' },
+      { icon: '🎉', label: 'Aniversários', image: '' },
     ],
     images: [
       {
@@ -81,8 +81,23 @@ export const defaultContent = {
       'Cada visita é uma experiência única, onde tradição e inovação se encontram para celebrar a sua essência.',
       'Hoje, somos reconhecidos como um espaço exclusivo, onde a beleza se transforma em luxo e cada detalhe reflete a verdadeira elegância.',
     ],
-    imageLabel: "Foto da Laud's",
-    image: '',
+    images: [
+      {
+        label: "Foto da Laud's",
+        image: '',
+        gradient: 'linear-gradient(135deg, #e9cfe4, #d080c0)',
+      },
+      {
+        label: 'Estação de cabelo',
+        image: '',
+        gradient: 'linear-gradient(135deg, #d8a8d0, #954b92)',
+      },
+      {
+        label: 'Recepção',
+        image: '',
+        gradient: 'linear-gradient(135deg, #f3e6f1, #bf63ad)',
+      },
+    ],
   },
   testimonials: {
     label: 'Clientes reais',
@@ -96,12 +111,14 @@ export const defaultContent = {
         location: 'Ituiutaba - MG',
         quote:
           'Excelência no atendimento, um trabalho perfeito. Exatamente o que esperávamos, só temos agradecimento e elogios a toda a equipe.',
+        rating: 5,
       },
       {
         initial: 'L',
         name: 'Luciana F.',
         location: 'Ituiutaba - MG',
         quote: 'O melhor atendimento e uma equipe competente e carinhosa.',
+        rating: 5,
       },
       {
         initial: 'Q',
@@ -109,6 +126,7 @@ export const defaultContent = {
         location: 'Ituiutaba - MG',
         quote:
           'Ótimo lugar pra quem está precisando se arrumar pra festa, casamento etc. Excelente profissional, ambiente lindo pra noivas e madrinhas.',
+        rating: 5,
       },
     ],
   },
@@ -121,26 +139,31 @@ export const defaultContent = {
         question: 'É necessário agendar horário?',
         answer:
           'Sim. Trabalhamos exclusivamente com atendimento agendado para garantir conforto, pontualidade e uma experiência personalizada para cada cliente.',
+        featured: true,
       },
       {
         question: 'Quais serviços o salão oferece?',
         answer:
           'Oferecemos serviços premium de corte, coloração, mechas, tratamentos capilares, maquiagem, sobrancelha, manicure, pedicure e produção para eventos.',
+        featured: true,
       },
       {
         question: 'Quais produtos são utilizados nos procedimentos?',
         answer:
           'Trabalhamos com linhas profissionais e produtos de alta performance, selecionados para garantir resultados sofisticados e saudáveis aos fios e à pele.',
+        featured: true,
       },
       {
         question: 'O salão atende sem horário marcado?',
         answer:
           'Recomendamos o agendamento prévio para garantir disponibilidade e um atendimento exclusivo. Em alguns casos, atendemos encaixes conforme disponibilidade da agenda.',
+        featured: true,
       },
       {
         question: 'Como faço para agendar?',
         answer:
           'Você pode realizar seu agendamento através do WhatsApp, telefone ou formulário desta página.',
+        featured: false,
       },
     ],
   },
@@ -159,7 +182,7 @@ export const defaultContent = {
       'Coloração',
       'Maquiagem',
       'Noivas e eventos',
-      'Nail Designer',
+      'Manicure e Pedicure',
       'Outro',
     ],
   },
