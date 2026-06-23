@@ -126,6 +126,20 @@ export async function saveSectionsOrder(sections) {
   )
 }
 
+export async function fetchGoogleReviews() {
+  const { data, error } = await supabase.functions.invoke('google-reviews')
+
+  if (error) {
+    throw new Error(error.message || 'Não foi possível buscar as avaliações do Google.')
+  }
+
+  if (data?.error) {
+    throw new Error(data.error)
+  }
+
+  return data
+}
+
 export async function uploadLandingImage(file) {
   const extension = file.name.split('.').pop()
   const path = `${crypto.randomUUID()}.${extension}`

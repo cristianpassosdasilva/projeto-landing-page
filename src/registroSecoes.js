@@ -60,6 +60,7 @@ export const registroSecoes = {
       label: 'Nosso trabalho',
       title: 'Galeria',
       subtitle: 'Veja alguns registros.',
+      image: '',
       items: [{ label: 'Nova imagem', image: '', wide: false }],
     },
   },

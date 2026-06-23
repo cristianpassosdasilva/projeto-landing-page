@@ -1,7 +1,8 @@
-import mulherImagem from '../../../img/mulher.png';
 import './Chamada_module.css';
 
-function SecaoChamada() {
+function SecaoChamada({ props }) {
+    const image = props?.image;
+
     return (
         <div className="pagina-lauds">
             <main className="main-lauds">
@@ -21,7 +22,7 @@ function SecaoChamada() {
                     </div>
 
                     <div className="col-direita">
-                        <img src={mulherImagem} alt="Mulher com cabelo estilizado" />
+                        <img src={image} alt="Mulher com cabelo estilizado" />
                         <div className="botoes">
                             <div className="botao-caixa">
                                 <a href="#agendar" className="botao botao-agendar">
