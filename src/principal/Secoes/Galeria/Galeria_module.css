@@ -203,11 +203,13 @@
     transition: transform 0.18s ease, box-shadow 0.18s ease, opacity 0.18s ease;
 }
 
-.modal-prev:hover,
-.modal-next:hover,
-.modal-close:hover {
-    transform: translateY(-3px) scale(1.03);
-    box-shadow: 0 12px 28px rgba(45,20,35,0.55);
+@media (hover: hover) {
+    .modal-prev:hover,
+    .modal-next:hover,
+    .modal-close:hover {
+        transform: translateY(-3px) scale(1.03);
+        box-shadow: 0 12px 28px rgba(45,20,35,0.55);
+    }
 }
 
 /* Posicionamento: prev/next lateralizados dentro da janela, close no topo direito */
