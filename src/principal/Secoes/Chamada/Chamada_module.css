@@ -267,10 +267,11 @@
   box-shadow: 0 6px 20px rgba(155, 89, 182, 0.3);
 }
 
-.botao-agendar:hover {
-  background: linear-gradient(90deg, #7b20b2, #aa67c7);
-  box-shadow: 0 8px 25px rgba(155, 89, 182, 0.5);
-  
+@media (hover: hover) {
+  .botao-agendar:hover {
+    background: linear-gradient(90deg, #7b20b2, #aa67c7);
+    box-shadow: 0 8px 25px rgba(155, 89, 182, 0.5);
+  }
 }
 
 .botao-servicos {
@@ -280,11 +281,12 @@
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 }
 
-.botao-servicos:hover {
-  background: #eae0ea;
-  color: #53117b;
-  border-color: #eae0ea;
-
+@media (hover: hover) {
+  .botao-servicos:hover {
+    background: #eae0ea;
+    color: #53117b;
+    border-color: #eae0ea;
+  }
 }
 
 

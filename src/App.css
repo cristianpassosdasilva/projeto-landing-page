@@ -86,8 +86,10 @@
   transition: color 0.2s ease;
 }
 
-.nav-links a:hover {
-  color: var(--p700);
+@media (hover: hover) {
+  .nav-links a:hover {
+    color: var(--p700);
+  }
 }
 
 .nav-links .btn {
@@ -98,8 +100,10 @@
   color: #fff;
 }
 
-.nav-links .btn-primary:hover {
-  color: #fff;
+@media (hover: hover) {
+  .nav-links .btn-primary:hover {
+    color: #fff;
+  }
 }
 
 .admin-link {
@@ -141,8 +145,10 @@
   border: 1px solid var(--p300);
 }
 
-.btn-outline:hover {
-  background: var(--p50);
+@media (hover: hover) {
+  .btn-outline:hover {
+    background: var(--p50);
+  }
 }
 
 .about-highlights {
@@ -409,10 +415,12 @@ main > section:first-child {
   object-fit: cover;
 }
 
-.service-item:hover .service-icon {
-  transform: translateY(-4px);
-  border-color: var(--p400);
-  box-shadow: var(--sh-glow);
+@media (hover: hover) {
+  .service-item:hover .service-icon {
+    transform: translateY(-4px);
+    border-color: var(--p400);
+    box-shadow: var(--sh-glow);
+  }
 }
 
 .image-carousel,
@@ -546,8 +554,10 @@ main > section:first-child {
   aspect-ratio: 16 / 9;
 }
 
-.gallery-item:hover {
-  transform: scale(1.015);
+@media (hover: hover) {
+  .gallery-item:hover {
+    transform: scale(1.015);
+  }
 }
 
 .gallery-copy {
@@ -758,8 +768,10 @@ main > section:first-child {
   transition: opacity .2s;
 }
 
-.faq-mais:hover {
-  opacity: .7;
+@media (hover: hover) {
+  .faq-mais:hover {
+    opacity: .7;
+  }
 }
 
 .faq-cta {
