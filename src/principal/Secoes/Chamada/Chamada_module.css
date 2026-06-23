@@ -188,6 +188,7 @@
 /* COLUNA DIREITA: Foto da Modelo e Botões de Ação */
 .col-direita {
   position: relative;
+  margin-top: -90px;
   margin-bottom: 0px;
   padding: 0; /* remove qualquer espaçamento interno */
   overflow: hidden; /* corta excesso e evita gaps */
@@ -201,15 +202,16 @@
   top: 0;
   left: 0;
   width: 100%; /* ocupa toda a largura da coluna à direita */
-  height: auto; /* CORREÇÃO DESKTOP: imagem cobre 100% da altura para não deixar espaços em branco embaixo */
+  height: 100%; /* CORREÇÃO DESKTOP: imagem cobre 100% da altura para não deixar espaços em branco embaixo */
   object-fit: cover;
   object-position: center;
   z-index: 1;
-  transition: transform 0.500s ease;
-  margin-top: 0px;
-  max-width: none;
+  
+  margin-top: 40px;
+  max-width: 850px;
   padding: 0; /* remove qualquer espaçamento interno */
   overflow: hidden; /* corta excesso e evita gaps */
+
 }
 
 .col-direita:hover img {
@@ -268,7 +270,7 @@
 .botao-agendar:hover {
   background: linear-gradient(90deg, #7b20b2, #aa67c7);
   box-shadow: 0 8px 25px rgba(155, 89, 182, 0.5);
-  transform: translateY(-2px);
+  
 }
 
 .botao-servicos {
@@ -282,7 +284,7 @@
   background: #eae0ea;
   color: #53117b;
   border-color: #eae0ea;
-  transform: translateY(-2px);
+
 }
 
 
@@ -301,6 +303,7 @@
   .col-esquerda {
     min-height: 560px;
     height: auto;
+    margin-top: -20%;
   }
 
   /* Ajustes finos de coordenadas absolutas para não colidir no Tablet */
@@ -364,6 +367,8 @@
   .col-direita img {
     width: 100%;
   }
+
+
 }
 
 
@@ -383,7 +388,7 @@
     padding: 30px 20px 10px 30px;
     grid-template-columns: 1fr;
     width: 100%;
-    margin-top: -10%;
+    margin-top: -50%;
     text-align: center;
   }
 
