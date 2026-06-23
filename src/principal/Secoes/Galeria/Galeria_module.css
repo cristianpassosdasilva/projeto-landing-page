@@ -138,7 +138,7 @@
 }
 
 /* Botões */
-.carousel-btn {
+/* .carousel-btn {
     background: linear-gradient(90deg, #9D2795, #A8499A, #D080C0);
     border: none;
     width: clamp(36px, 6vw, 44px);
@@ -149,7 +149,7 @@
     color: #fff;
     font-size: clamp(18px, 4vw, 20px);
     cursor: pointer;
-}
+} */
 
 /* ===========================
    Modal

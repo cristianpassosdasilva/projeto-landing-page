@@ -1,6 +1,6 @@
 import imagem from '../../../img/acessorios.png'
 import TituloSecao from '../../Comuns/TituloSecao/TituloSecao'
-import './AutoridadeQuemSomos_module.css'
+// import './AutoridadeQuemSomos_module.css'
 
 export default function AutoridadeQuemSomos({ props }) {
     const safeProps = props || {}
@@ -22,7 +22,10 @@ export default function AutoridadeQuemSomos({ props }) {
     const highlightItems = Array.isArray(highlights) ? highlights.filter(Boolean) : []
 
     return (
-        <section id="historia" className="section about-section">
+        <section
+            id="historia"
+            className="section about-section"
+        >
             <div className="wrap about-layout">
                 <div className="about-copy">
                     <TituloSecao label={label} title={title} highlight={highlight} subtitle={subtitle} />

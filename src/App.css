@@ -94,6 +94,14 @@
   padding: 11px 24px;
 }
 
+.nav-links .btn-primary {
+  color: #fff;
+}
+
+.nav-links .btn-primary:hover {
+  color: #fff;
+}
+
 .admin-link {
   padding: 8px 12px;
   border: 1px solid var(--n200);
@@ -121,10 +129,6 @@
     background 0.22s var(--ease);
 }
 
-.btn:hover {
-  transform: translateY(-2px);
-}
-
 .btn-primary {
   color: #fff;
   background: var(--grad);
@@ -139,6 +143,37 @@
 
 .btn-outline:hover {
   background: var(--p50);
+}
+
+.about-highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 8px;
+  padding-right: 45px;
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+
+.about-highlights span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(208, 128, 192, 0.24);
+  color: var(--p700);
+  font-size: 0.95rem;
+  font-weight: 600;
+  box-shadow: 0 8px 24px rgba(94, 47, 91, 0.06);
+}
+
+.about-highlights span::before {
+  content: '✦';
+  color: var(--p500);
 }
 
 .hero-section {
@@ -1279,6 +1314,35 @@ footer .logo-text {
     padding: 0 14px;
     white-space: nowrap;
   }
+
+  .about-copy p {
+    padding: 0 12px;
+    text-align: center;
+  }
+
+  .about-highlights {
+    gap: 10px;
+  }
+
+  .about-highlights span {
+    width: auto;
+    background: rgba(255, 255, 255, 0.94);
+    border: 0;
+    color: var(--p700);
+    border-radius: 50%;
+    box-shadow: var(--sh-md);
+    cursor: pointer;
+    justify-content: center;
+  }
+
+  .history-grid h3 {
+    text-align: center;
+  }
+
+  .history-grid p {
+    padding: 0 12px;
+    text-align: center;
+  }
 }
 
 @media (max-width: 700px) {
@@ -1340,6 +1404,35 @@ footer .logo-text {
   .admin-fields,
   .admin-card {
     grid-template-columns: 1fr;
+  }
+
+  .about-copy p {
+    padding: 0 12px;
+    text-align: center;
+  }
+
+  .about-highlights {
+    gap: 10px;
+  }
+
+  .about-highlights span {
+    width: auto;
+    background: rgba(255, 255, 255, 0.94);
+    border: 0;
+    color: var(--p700);
+    border-radius: 50%;
+    box-shadow: var(--sh-md);
+    cursor: pointer;
+    justify-content: center;
+  }
+
+  .history-grid h3 {
+    text-align: center;
+  }
+
+  .history-grid p {
+    padding: 0 12px;
+    text-align: center;
   }
 
   .contact-form,

@@ -1,13 +1,6 @@
 import { useEffect, useRef, useState } from 'react'; // importa React, hooks e ref
-import './Galeria_module.css'; // importa o CSS local da galeria
-
-// importa as imagens da pasta src/img
-import img1 from '../../../img/instalacoes_01.png';
-import img2 from '../../../img/instalacoes_02.png';
-import img3 from '../../../img/instalacoes_03.png';
-import img4 from '../../../img/instalacoes_04.png';
-import laudsImg from '../../../img/lauds.jpeg'; // imagem circular solicitada (lauds.png)
 import TituloSecao from '../../Comuns/TituloSecao/TituloSecao';
+import './Galeria_module.css'; // importa o CSS local da galeria
 
 // componente Galeria: bloco autoridade com carousel automático de miniaturas
 export default function Galeria({ props }) {
@@ -125,22 +118,24 @@ export default function Galeria({ props }) {
                         </div>
                     </div>
 
-                    <div className="thumbs-carousel" onMouseEnter={pause} onMouseLeave={resume}> {/* carousel de miniaturas */}
-                        <button className="carousel-btn prev" onClick={prev} aria-label="Anterior">‹</button>
-                        <div ref={trackRef} className="thumbs-track"> {/* faixa rolável */}
-                            {thumbs.map((src, i) => (
-                                <div
-                                    key={i}
-                                    className={`thumb-item ${i === index ? 'active' : ''}`}
-                                    ref={(el) => (refs.current[i] = el)}
-                                    onClick={() => openModal(i)}
-                                >
-                                    <img src={src} alt={`Thumb ${i + 1}`} />
-                                </div>
-                            ))}
+                    {thumbs.length > 0 ? (
+                        <div className="thumbs-carousel" onMouseEnter={pause} onMouseLeave={resume}> {/* carousel de miniaturas */}
+                            <button className="carousel-nav prev" onClick={prev} aria-label="Anterior">‹</button>
+                            <div ref={trackRef} className="thumbs-track"> {/* faixa rolável */}
+                                {thumbs.map((src, i) => (
+                                    <div
+                                        key={i}
+                                        className={`thumb-item ${i === index ? 'active' : ''}`}
+                                        ref={(el) => (refs.current[i] = el)}
+                                        onClick={() => openModal(i)}
+                                    >
+                                        <img src={src} alt={`Thumb ${i + 1}`} />
+                                    </div>
+                                ))}
+                            </div>
+                            <button className="carousel-nav next" onClick={next} aria-label="Próxima">›</button>
                         </div>
-                        <button className="carousel-btn next" onClick={next} aria-label="Próxima">›</button>
-                    </div>
+                    ) : null}
                 </div>
             </div>
             {modalIndex !== null && (

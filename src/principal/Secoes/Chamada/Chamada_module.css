@@ -211,7 +211,7 @@
   max-width: 850px;
   padding: 0; /* remove qualquer espaçamento interno */
   overflow: hidden; /* corta excesso e evita gaps */
-  border: #893785 solid 1px;
+
 }
 
 .col-direita:hover img {
