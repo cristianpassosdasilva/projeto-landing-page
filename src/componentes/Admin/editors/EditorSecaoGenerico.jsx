@@ -229,7 +229,7 @@ function ItemsEditor({ items, onChange, onUpload }) {
             <TextArea label="Resposta" value={item.answer} onChange={(value) => update(index, 'answer', value)} />
           ) : null}
           {'question' in item ? (
-            <CheckboxInput label="Exibir nas primeiras 4" value={item.featured ?? true} onChange={(value) => update(index, 'featured', value)} />
+            <CheckboxInput label="Mostrar antes de clicar em '+ perguntas'" value={item.featured ?? false} onChange={(value) => update(index, 'featured', value)} />
           ) : null}
           {'image' in item || 'icon' in item ? (
             <ImageInput label="Imagem" value={item.image ?? ''} onChange={(value) => update(index, 'image', value)} onUpload={onUpload} />
