@@ -7,8 +7,8 @@ export default function PerguntasFrequentes({ props }) {
     (item) => item.question?.trim() && item.answer?.trim(),
   )
 
-  const perguntasDestaque = perguntas.filter((item) => item.featured ?? true)
-  const perguntasExtras = perguntas.filter((item) => !(item.featured ?? true))
+  const perguntasDestaque = perguntas.filter((item) => item.featured ?? false)
+  const perguntasExtras = perguntas.filter((item) => !(item.featured ?? false))
 
   const perguntasExibidas = mostrarTodas
     ? perguntas
