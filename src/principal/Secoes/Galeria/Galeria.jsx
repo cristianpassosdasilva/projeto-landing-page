@@ -131,7 +131,7 @@ export default function Galeria({ props }) {
 
                     {thumbs.length > 0 ? (
                         <div className="thumbs-carousel" onMouseEnter={pause} onMouseLeave={resume}> {/* carousel de miniaturas */}
-                            <button className="carousel-nav prev" onClick={prev} aria-label="Anterior">‹</button>
+                            <button className="gallery-nav prev" onClick={prev} aria-label="Anterior">‹</button>
                             <div ref={trackRef} className="thumbs-track"> {/* faixa rolável */}
                                 {thumbs.map((src, i) => (
                                     <div
@@ -144,7 +144,7 @@ export default function Galeria({ props }) {
                                     </div>
                                 ))}
                             </div>
-                            <button className="carousel-nav next" onClick={next} aria-label="Próxima">›</button>
+                            <button className="gallery-nav next" onClick={next} aria-label="Próxima">›</button>
                         </div>
                     ) : null}
                 </div>
@@ -156,11 +156,11 @@ export default function Galeria({ props }) {
                 >
                     <div className="modal-inner" role="dialog" aria-modal="true">
                         <button className="modal-close" onClick={closeModal} aria-label="Fechar">✕</button>
-                        <button className="modal-prev" onClick={prevModal} aria-label="Anterior">‹</button>
+                        <button className="gallery-nav prev" onClick={prevModal} aria-label="Anterior">‹</button>
                         <div className="modal-content">
                             <img src={thumbs[modalIndex]} alt={`Imagem ${modalIndex + 1}`} />
                         </div>
-                        <button className="modal-next" onClick={nextModal} aria-label="Próxima">›</button>
+                        <button className="gallery-nav next" onClick={nextModal} aria-label="Próxima">›</button>
                     </div>
                 </div>
             )}
