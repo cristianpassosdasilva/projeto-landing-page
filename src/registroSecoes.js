@@ -30,7 +30,7 @@ export const registroSecoes = {
       title: 'Não somos apenas um',
       highlight: 'salão de beleza',
       subtitle: 'Um espaço premium onde técnica, acolhimento e sofisticação se encontram.',
-      text: 'Somos um destino de elegância e bem-estar. Cada visita é uma experiência única, pensada para valorizar sua beleza e seu momento.',
+      paragraphs: ['Somos um destino de elegância e bem-estar. Cada visita é uma experiência única, pensada para valorizar sua beleza e seu momento.'],
       image: '',
       imageLabel: 'Ambiente premium do salão',
       highlights: ['Atendimento personalizado', 'Equipe especializada', 'Resultados sofisticados'],
@@ -120,21 +120,17 @@ export const registroSecoes = {
       subjects: ['Corte de cabelo', 'Maquiagem', 'Outro'],
     },
   },
-  // cta: ainda não tem um componente próprio — "Chamada" já é usado no hero
-  // e tem texto fixo no JSX, então reaproveitá-lo aqui duplicaria o banner
-  // de abertura no fim da página. Criar um componente dedicado antes de
-  // reativar este registro.
-  // cta: {
-  //   label: 'Chamada',
-  //   component: ChamadaFinal,
-  //   defaultProps: {
-  //     label: 'Chamada',
-  //     title: 'Pronta para se transformar?',
-  //     text: 'Agende seu horário agora.',
-  //     buttonText: 'Falar no WhatsApp',
-  //     href: '#contato',
-  //   },
-  // },
+  cta: {
+    label: 'Chamada',
+    component: Chamada,
+    defaultProps: {
+      label: 'Chamada',
+      title: 'Pronta para se transformar?',
+      text: 'Agende seu horário agora.',
+      buttonText: 'Falar no WhatsApp',
+      href: '#contato',
+    },
+  },
 }
 
 export function createSection(type, orderIndex) {
