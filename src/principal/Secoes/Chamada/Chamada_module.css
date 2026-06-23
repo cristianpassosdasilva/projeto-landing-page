@@ -47,6 +47,28 @@
   height: auto;
 }
 
+/* No tablet/mobile os spans passam a ser filhos diretos do grid de
+   .col-esquerda (grid-row/grid-column) — então, por padrão, esse
+   wrapper "desaparece" do layout para não quebrar esse grid. */
+.texto-bloco {
+  display: contents;
+}
+
+/* Só no desktop o wrapper centraliza verticalmente todo o bloco de
+   texto dentro da coluna, sem alterar a posição relativa entre as
+   palavras (elas continuam com as mesmas posições absolutas). */
+@media (min-width: 1025px) {
+  .texto-bloco {
+    display: block;
+    position: absolute;
+    top: 38%;
+    left: 0;
+    width: 100%;
+    height: 720px;
+    transform: translateY(-50%);
+  }
+}
+
 /* Posicionamentos Absolutos Fluídos Estilo Guia de Design (Desktop) */
 .nao-e {
   position: absolute;
@@ -214,10 +236,6 @@
 
 }
 
-.col-direita:hover img {
-  /*transform: scale(0.02);*/
-}
-
 /* Degradê escuro sob os botões para garantir máximo contraste e legibilidade */
 .col-direita::after {
   content: '';
@@ -264,6 +282,9 @@
 .botao-agendar {
   background: linear-gradient(90deg, #6a1b9a, #9b59b6);
   color: #ffffff;
+  /* borda transparente do mesmo tamanho da do botão Ver Serviços, só
+     para os dois terem exatamente a mesma altura */
+  border: 2px solid transparent;
   box-shadow: 0 6px 20px rgba(155, 89, 182, 0.3);
 }
 
