@@ -25,7 +25,7 @@ function SecaoChamada({ props }) {
                         <img src={image} alt="Mulher com cabelo estilizado" />
                         <div className="botoes">
                             <div className="botao-caixa">
-                                <a href="#agendar" className="botao botao-agendar">
+                                <a href="#contato" className="botao botao-agendar">
                                     Agendar agora
                                 </a>
                             </div>
