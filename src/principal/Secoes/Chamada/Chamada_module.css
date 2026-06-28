@@ -47,164 +47,76 @@
   height: auto;
 }
 
-/* No tablet/mobile os spans passam a ser filhos diretos do grid de
-   .col-esquerda (grid-row/grid-column) — então, por padrão, esse
-   wrapper "desaparece" do layout para não quebrar esse grid. */
 .texto-bloco {
-  display: contents;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 60px 8% 60px 0;
+  justify-content: center;
+  min-height: 720px;
 }
 
-/* Só no desktop o wrapper centraliza verticalmente todo o bloco de
-   texto dentro da coluna, sem alterar a posição relativa entre as
-   palavras (elas continuam com as mesmas posições absolutas). */
-@media (min-width: 1025px) {
-  .texto-bloco {
-    display: block;
-    position: absolute;
-    top: 38%;
-    left: 0;
-    width: 100%;
-    height: 720px;
-    transform: translateY(-50%);
-  }
-}
-
-/* Posicionamentos Absolutos Fluídos Estilo Guia de Design (Desktop) */
-.nao-e {
-  position: absolute;
-  left: 20%;
-  top: 24%;
-  font-size: clamp(4.8rem, 5.6vw, 3.6rem);
-  font-weight: 900;
-  color: #fff;
-  line-height: 1;
-  letter-spacing: 0.10em;
-}
-
-.apenas {
-  position: absolute;
-  left: 56%;
-  top: 26%;
+.chamada-badge {
   font-family: 'Archivo Black', sans-serif;
-  font-size: clamp(2.8rem, 2.6vw, 2rem);
+  font-size: clamp(0.9rem, 1.4vw, 1.1rem);
   font-weight: 700;
-  background: linear-gradient(90deg, #855782 0%, #A8499A 50%, #D080C0 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  line-height: 1;
-  letter-spacing: 0.10em;
-}
-
-.um {
-  position: absolute;
-  left: 88.5%;
-  top: 25%;
-  font-family: 'Archivo Black', sans-serif;
-  font-size: clamp(3.8rem, 2.2vw, 1.75rem);
-  font-weight: 700;
-  color: #fff;
-  line-height: 1;
-  letter-spacing: 0.10em;
-}
-
-.salao {
-  position: absolute;
-  left: 20%;
-  top: 31%;
-  font-family: 'Archivo Black', sans-serif;
-  font-size: clamp(8.0rem, 9vw, 6.6rem);
-  font-weight: 800;
-  background: linear-gradient(90deg, #D080C0 0%, #A8499A 50%, #5E2F5B 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  line-height: 0.99;
-  letter-spacing: 0.04em;
-  padding-top: 15px;
-}
-
-.e-o-seu {
-  position: absolute;
-  left: 85%;
-  top: 39%;
-  font-family: 'Poppins', sans-serif;
-  font-size: clamp(1.1rem, 2.4vw, 1.75rem);
-  font-weight: 700;
-  color: #fff;
-  white-space: nowrap;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-}
-
-.novo {
-  position: absolute;
-  left: 20%;
-  top: 53%;
-  font-family: 'Archivo Black', sans-serif;
-  font-size: clamp(2.5rem, 2.2vw, 2rem);
-  font-weight: 900;
-  color: #eae0ea;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  line-height: 1;
-}
-
-.momento {
-  position: absolute;
-  left: 41.5%;
-  top: 50%;
-  font-family: 'Poppins', sans-serif;
-  font-size: clamp(2.8rem, 6vw, 6rem);
-  text-transform: uppercase;
-  font-weight: 900;
-  background: linear-gradient(20deg, #D383CE 0%, #D157BF 50%, #D080C0 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  line-height: 1;
-}
-
-.sinta-se {
-  position: absolute;
-  left: 20%;
-  top: 61%;
-  font-family: 'Archivo Black', sans-serif;
-  font-size: clamp(1.2rem, 2.8vw, 2rem);
-  font-weight: 700;
-  background: linear-gradient(90deg, #9D2795 0%, #A8499A 50%, #D080C0 100%);
+  background: linear-gradient(90deg, #df78d8 0%, #923283 50%, #ba7bae 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   letter-spacing: 0.2em;
   text-transform: uppercase;
 }
 
-.incrivel {
-  position: absolute;
-  left: 18.5%;
-  top: 65%;
-  font-family: 'Red Hat Text', sans-serif;
-  font-size: clamp(8.1rem, 8vw, 5.7rem);
-  font-weight: 300;
-  background: linear-gradient(90deg, #df78d8 0%, #923283 50%, #ba7bae 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  letter-spacing: -0.05em;
-  line-height: 0.95;
-  display: inline-block;
-  transform: scaleX(1.4);
-  /* Efeito esticado horizontal de boutique sofisticada */
-  transform-origin: left center;
-  text-transform: uppercase;
+.chamada-title {
+  font-family: 'Archivo Black', sans-serif;
+  font-size: clamp(2.4rem, 5.5vw, 4.4rem);
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.08;
+  letter-spacing: 0.01em;
+  margin: 0;
+  white-space: pre-line;
 }
 
-.hoje {
-  position: absolute;
-  left: 20%;
-  top: 80%;
-  font-family: 'Archivo Black', sans-serif;
-  font-size: clamp(1.1rem, 2.3vw, 5.75rem);
+.chamada-highlight {
+  display: inline-block;
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(2rem, 4.5vw, 3.4rem);
+  text-transform: uppercase;
   font-weight: 900;
-  color: #fff;
-  letter-spacing: 0.05em;
-  line-height: 1;
+  background: linear-gradient(20deg, #D383CE 0%, #D157BF 50%, #D080C0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.05;
+}
+
+.chamada-subtitle {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(1rem, 1.6vw, 1.25rem);
+  font-weight: 400;
+  color: #eae0ea;
+  line-height: 1.5;
+  max-width: 540px;
+  margin: 0;
+}
+
+.secao-chamada-simples {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.secao-chamada-simples .col-esquerda {
+  width: 100%;
+  min-height: auto;
+}
+
+.secao-chamada-simples .texto-bloco {
+  align-items: center;
+  min-height: auto;
+  padding: 0;
 }
 
 /* COLUNA DIREITA: Foto da Modelo e Botões de Ação */
@@ -324,63 +236,15 @@
   }
 
   .col-esquerda {
-    min-height: 560px;
+    min-height: auto;
     height: auto;
-    margin-top: -20%;
   }
 
-  /* Ajustes finos de coordenadas absolutas para não colidir no Tablet */
-  .nao-e {
-    left: 10%;
-    top: 40%;
-  }
-
-  .apenas {
-    left: 45%;
-    top: 42%;
-  }
-
-  .um {
-    left: 76%;
-    top: 40%;
-  }
-
-  .salao {
-    left: 10%;
-    top: 48%;
-  }
-
-  .e-o-seu {
-    left: 77.5%;
-    top: 56%;
-  }
-
-  .novo {
-    left: 10%;
-    top: 75%;
-  }
-
-  .momento {
-    left: 34%;
-    top: 72%;
-    font-size: 78px;
-  }
-
-  .sinta-se {
-    left: 10%;
-    top: 90%;
-  }
-
-  .incrivel {
-    left: 8.5%;
-    top: 93%;
-    font-size: 115px;
-  }
-
-  .hoje {
-    left: 10%;
-    top: 110%;
-    
+  .texto-bloco {
+    min-height: auto;
+    padding: 40px 0;
+    text-align: center;
+    align-items: center;
   }
 
   .col-direita {
@@ -411,154 +275,24 @@
     padding: 30px 20px 10px 30px;
     grid-template-columns: 1fr;
     width: 100%;
-    margin-top: -50%;
     text-align: center;
   }
 
-  /* REQUISITO: Adaptação de layout de texto via GRID de 12 colunas 
-     para empilhar as palavras nas 6 linhas exatas solicitadas, 
-     completamente centralizado com padding de 10% */
   .col-esquerda {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    row-gap: 24px;
-    column-gap: 4px;
     min-height: auto;
     height: auto;
-    padding: 2%; /* Requisito do Usuário */
-    justify-items: center;
+    padding: 0;
+  }
+
+  .texto-bloco {
     align-items: center;
     text-align: center;
-        padding: 0%;
-    padding-top: -5%;
-    margin-top: 190px;
+    min-height: auto;
+    padding: 24px 0;
   }
 
-  /* Reset de absoluto para fluxo de grid ordenado e responsivo */
-  .nao-e,
-  .apenas,
-  .um,
-  .salao,
-  .e-o-seu,
-  .novo,
-  .momento,
-  .sinta-se,
-  .incrivel,
-  .hoje {
-    position: static;
-    transform: none;
-    line-height: 1.1;
-    width: auto;
-    padding: 0;
-    margin: 0;
-  }
-
-  /* 1ª linha as palavras: NÃO É APENAS UM */
-  .nao-e {
-    grid-row: 1;
-    grid-column: 1 / 6;
-    font-size: clamp(2rem, 5.2vw, 2.8rem);
-    font-weight: 900;
-    margin-left: 5%;
-    margin-bottom: -30%;
-  }
-  .apenas {
-    grid-row: 1;
-    grid-column: 6 / 10;
-    justify-self: center;
-    font-size: clamp(1.2rem, 3.2vw, 1.8rem);
-    font-weight: 700;
-    margin-left: 5%;
-    margin-bottom: -38%;
-  }
-  .um {
-    grid-row: 1;
-    grid-column: 10 / 13;
-    font-size: clamp(1.2rem, 3.2vw, 1.8rem);
-    font-weight: 700;
-    margin-left: -33%;
-    margin-bottom: -52%;
-  }
-
-  /* 2ª linha as palavras: SALÃO, É O SEU */
-  .salao {
-    grid-row: 2;
-    grid-column: 1 / 7;
-
-    font-size: clamp(3.2rem, 9.5vw, 4.8rem);
-    font-weight: 800;
-    padding-top: -20%;
-    margin-left: 27%;
-
-  }
-  .e-o-seu {
-    grid-row: 2;
-    grid-column: 7 / 13;
-
-    font-size: clamp(0.9rem, 2.5vw, 1.3rem);
-    font-weight: 700;
-    letter-spacing: 0.5em;
-    margin-left: 8%;
-    margin-top: 35%;
-    margin-bottom: -10%;
-  }
-  /* 3ª linhas as palavras: NOVO MOMENTO */
-  .novo {
-    grid-row: 3;
-    grid-column: 1 / 6;
-    font-size: clamp(1.5rem, 4.5vw, 2.2rem);
-    font-weight: 900;
-    margin-left: 26%;
-    letter-spacing: 0.05em;
-    margin-left: -35%;
-    margin-bottom: 10%;
-    margin-top: -14%;
-
-  }
-  .momento {
-    grid-row: 3;
-    grid-column: 6 / 13;
-    font-size: clamp(4.5rem, 7.8vw, 3.8rem);
-    font-weight: 900;
-    margin-top:-12%;
-    margin-left: -37%;
-    margin-bottom: 4%;
-  }
-
-  /* 4ª linha a palavra: SINTA-SE */
-  .sinta-se {
-    grid-row: 4;
-    grid-column: 1 / 13;
-    font-size: clamp(1.1rem, 3.2vw, 1.6rem);
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    margin-top: -2%;
-    margin-left: -43%;
-  }
-
-  /* 5ª linha as palavras: INCRÍVEL */
-  .incrivel {
-    grid-row: 5;
-    grid-column: 1 / 13;
-    font-size: clamp(13.5rem, 9.8vw, 5.2rem);
-    transform: scaleX(10.2); /* Suaviza escala elegantemente para mobile */
-    transform-origin: center center;
-    letter-spacing: -0.04em;
-    display: inline-block;
-    margin-top: -9%;
-    margin-left: -16.5%;
-  }
-
-  /* 6ªlinha a palavra: HOJE. */
-  .hoje {
-    grid-row: 6;
-    grid-column: 1 / 13;
-    font-size: clamp(1.8rem, 5.5vw, 2.8rem);
-    font-weight: 900;
-    letter-spacing: 0.05em;
-    margin-top: -10%;
-    margin-left: -32%;
-    margin-bottom: 7%
+  .chamada-subtitle {
+    max-width: 100%;
   }
 
   /* Imagem e Botões em Mobile */
@@ -604,49 +338,13 @@
    MEDIAS QUERIES: SMARTPHONES PEQUENOS (Até 480px)
    ======================================================= */
 @media (max-width: 480px) {
-  .col-esquerda {
-
+  .chamada-title {
+    font-size: clamp(1.9rem, 8vw, 2.4rem);
   }
 
-  .nao-e {
-    font-size: 2.2rem;
-    font-weight: 900;
+  .chamada-highlight {
+    font-size: clamp(1.5rem, 7vw, 2rem);
   }
-  .apenas, .um {
-    font-size: 1.1rem;
-  }
-
-  .salao {
-    font-size: 2.8rem;
-        margin-top: 17px;
-  }
-  .e-o-seu {
-    font-size: 0.8rem;
-    margin-top: -4px;
-  }
-
-  .novo {
-    font-size: 1.3rem;
-  }
-  .momento {
-    font-size: 2.2rem;
-  }
-
-  .sinta-se {
-    font-size: 1rem;
-  }
-
-  .incrivel {
-    font-size: 2.6rem;
-    transform: none; /* Desativa escala para não cortar nas bordas menores */
-  }
-
-  .hoje {
-    font-size: 2rem;
-  }
-
-  
-
 
   .botoes {
     margin-bottom: 24px;
