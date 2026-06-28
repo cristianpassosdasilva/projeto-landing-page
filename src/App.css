@@ -1152,6 +1152,12 @@ footer .logo-text {
   box-shadow: 0 0 0 3px rgba(191, 99, 173, 0.12);
 }
 
+.field-hint {
+  font-weight: 400;
+  color: var(--ink-soft, #888);
+  font-size: 0.78em;
+}
+
 .check-field {
   display: flex;
   align-items: center;

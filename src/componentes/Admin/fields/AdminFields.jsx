@@ -17,7 +17,9 @@ export function AdminCard({ children }) {
 export function TextInput({ label, value = '', onChange }) {
   return (
     <label className="field">
-      <span>{label}</span>
+      <span>
+        {label} <small className="field-hint">use **negrito** para destacar</small>
+      </span>
       <input value={value} onChange={(event) => onChange(event.target.value)} />
     </label>
   )
@@ -26,7 +28,9 @@ export function TextInput({ label, value = '', onChange }) {
 export function TextArea({ label, value = '', onChange }) {
   return (
     <label className="field">
-      <span>{label}</span>
+      <span>
+        {label} <small className="field-hint">use **negrito** para destacar</small>
+      </span>
       <textarea value={value} onChange={(event) => onChange(event.target.value)} />
     </label>
   )

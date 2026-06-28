@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react'
 import TituloSecao from '../../Comuns/TituloSecao/TituloSecao'
+import TextoFormatado from '../../../utilitarios/textoFormatado'
 
 export default function Depoimentos({ props }) {
   const [testimonialSlide, setTestimonialSlide] = useState(0)
@@ -63,7 +64,9 @@ export default function Depoimentos({ props }) {
                       {'★'.repeat(testimonial.rating ?? 5)}
                       {'☆'.repeat(5 - (testimonial.rating ?? 5))}
                     </div>
-                      <p>“{testimonial.quote}”</p>
+                      <p>
+                        “<TextoFormatado texto={testimonial.quote} />”
+                      </p>
                     </article>
                   ))}
                 </div>

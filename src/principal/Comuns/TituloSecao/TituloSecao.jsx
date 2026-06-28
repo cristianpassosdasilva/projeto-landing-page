@@ -1,3 +1,5 @@
+import TextoFormatado from '../../../utilitarios/textoFormatado'
+
 export default function TituloSecao({ label, title, highlight, subtitle }) {
   const hasTitle = Boolean(title && String(title).trim())
   const hasHighlight = Boolean(highlight && String(highlight).trim())
@@ -9,24 +11,34 @@ export default function TituloSecao({ label, title, highlight, subtitle }) {
       <h2>
         {/* Se o title for igual ao highlight, renderiza apenas em gradiente */}
         {titleEqualsHighlight ? (
-          <span className="gradtext">{String(title).trim()}</span>
+          <span className="gradtext">
+            <TextoFormatado texto={String(title).trim()} />
+          </span>
         ) : (
           <>
-            {hasTitle ? String(title) : null}
+            {hasTitle ? <TextoFormatado texto={String(title)} /> : null}
             {hasHighlight ? (
               hasTitle ? (
                 <>
                   <br />
-                  <span className="gradtext">{highlight}</span>
+                  <span className="gradtext">
+                    <TextoFormatado texto={highlight} />
+                  </span>
                 </>
               ) : (
-                <span className="gradtext">{highlight}</span>
+                <span className="gradtext">
+                  <TextoFormatado texto={highlight} />
+                </span>
               )
             ) : null}
           </>
         )}
       </h2>
-      {subtitle ? <p>{subtitle}</p> : null}
+      {subtitle ? (
+        <p>
+          <TextoFormatado texto={subtitle} />
+        </p>
+      ) : null}
     </div>
   )
 }
