@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { FloatingWhatsApp } from 'react-floating-whatsapp'
 import logoSvg from './assets/logo.svg'
 import Cabecalho from './cabecalho/Cabecalho'
@@ -15,6 +15,7 @@ export default function App() {
   const [view, setView] = useState(getCurrentView)
   const [landingData, setLandingData] = useState(null)
   const [isLoading, setIsLoading] = useState(true)
+  const viewRef = useRef(view)
 
   async function loadData(options = {}) {
     setIsLoading(true)
@@ -36,13 +37,19 @@ export default function App() {
     })
 
     function syncHash() {
-      const nextView = getCurrentView()
-      setView(nextView)
-
       if (window.location.hash === '#site') {
-        window.location.hash = ''
+        window.history.replaceState(null, '', window.location.pathname + window.location.search)
       }
 
+      const nextView = getCurrentView()
+      const previousView = viewRef.current
+
+      if (nextView === previousView) {
+        return
+      }
+
+      viewRef.current = nextView
+      setView(nextView)
       loadData({ includeDisabled: nextView === 'admin' })
     }
 

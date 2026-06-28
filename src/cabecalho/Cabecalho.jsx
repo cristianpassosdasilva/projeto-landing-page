@@ -12,8 +12,14 @@ const links = [
 export default function Cabecalho({ brand }) {
   const [menuAberto, setMenuAberto] = useState(false)
 
-  function fecharMenuComAtraso() {
-    window.setTimeout(() => setMenuAberto(false), 0)
+  function navegarParaSecao(event, href) {
+    event.preventDefault()
+    const section = document.getElementById(href.replace('#', ''))
+    setMenuAberto(false)
+    window.requestAnimationFrame(() => {
+      section?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    })
+    window.history.pushState(null, '', href)
   }
 
   return (
@@ -33,23 +39,23 @@ export default function Cabecalho({ brand }) {
         </div>
         <div className={`nav-links${menuAberto ? ' open' : ''}`}>
           {links.map(([href, label]) => (
-            <a href={href} key={href} onClick={fecharMenuComAtraso}>
+            <a href={href} key={href} onClick={(event) => navegarParaSecao(event, href)}>
               {label}
             </a>
           ))}
           <a
             href="#contato"
             className="btn btn-primary"
-            onClick={fecharMenuComAtraso}
+            onClick={(event) => navegarParaSecao(event, '#contato')}
           >
             Agendar
           </a>
           <a
             href="#admin"
             className="admin-link"
-            onClick={fecharMenuComAtraso}
+            onClick={() => setMenuAberto(false)}
           >
-            Admin
+            Login
           </a>
         </div>
       </div>
