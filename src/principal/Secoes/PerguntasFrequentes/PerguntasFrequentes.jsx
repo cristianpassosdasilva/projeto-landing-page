@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import TextoFormatado from '../../../utilitarios/textoFormatado'
 
 export default function PerguntasFrequentes({ props }) {
   const [mostrarTodas, setMostrarTodas] = useState(false)
@@ -27,10 +28,12 @@ export default function PerguntasFrequentes({ props }) {
           {perguntasExibidas.map((item, index) => (
             <details className="faq-item" key={`${item.question}-${index}`}>
               <summary>
-                {item.question}
+                <TextoFormatado texto={item.question} />
                 <span>+</span>
               </summary>
-              <p>{item.answer}</p>
+              <p>
+                <TextoFormatado texto={item.answer} />
+              </p>
             </details>
           ))}
         </div>
@@ -46,7 +49,9 @@ export default function PerguntasFrequentes({ props }) {
           </div>
         ) : null}
         <a className="faq-cta" href="#contato">
-          <span>{props.cta}</span>
+          <span>
+            <TextoFormatado texto={props.cta} />
+          </span>
           <strong>⌄</strong>
         </a>
       </div>

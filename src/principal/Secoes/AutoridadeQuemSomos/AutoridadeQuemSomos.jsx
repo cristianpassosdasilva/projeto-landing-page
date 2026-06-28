@@ -1,4 +1,5 @@
 import TituloSecao from '../../Comuns/TituloSecao/TituloSecao'
+import TextoFormatado from '../../../utilitarios/textoFormatado'
 // import './AutoridadeQuemSomos_module.css'
 
 export default function AutoridadeQuemSomos({ props }) {
@@ -29,12 +30,16 @@ export default function AutoridadeQuemSomos({ props }) {
                     <TituloSecao label={label} title={title} highlight={highlight} subtitle={subtitle} />
                     <div className="about-text-block">
                         {paragraphs.map((paragraph, index) => (
-                            <p key={`${paragraph}-${index}`}>{paragraph}</p>
+                            <p key={`${paragraph}-${index}`}>
+                                <TextoFormatado texto={paragraph} />
+                            </p>
                         ))}
                     </div>
                     <div className="about-highlights" aria-label="Principais diferenciais">
                         {highlightItems.map((item) => (
-                            <span key={item}>{item}</span>
+                            <span key={item}>
+                                <TextoFormatado texto={item} />
+                            </span>
                         ))}
                     </div>
                 </div>

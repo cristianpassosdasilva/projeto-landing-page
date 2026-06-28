@@ -1,4 +1,5 @@
 import Carrossel from '../../Comuns/Carrossel/Carrossel'
+import TextoFormatado from '../../../utilitarios/textoFormatado'
 
 export default function Historia({ props }) {
   const historyImages = props.images?.length
@@ -19,12 +20,16 @@ export default function Historia({ props }) {
         <div className='history-grid'>
           <div>
             <h3>
-              {props.heading}
+              <TextoFormatado texto={props.heading} />
               <br />
-              <span className='gradtext'>{props.highlight}</span>
+              <span className='gradtext'>
+                <TextoFormatado texto={props.highlight} />
+              </span>
             </h3>
             {props.paragraphs.map((paragraph, index) => (
-              <p key={`${paragraph}-${index}`}>{paragraph}</p>
+              <p key={`${paragraph}-${index}`}>
+                <TextoFormatado texto={paragraph} />
+              </p>
             ))}
           </div>
           <Carrossel images={historyImages} className='history-image' />
